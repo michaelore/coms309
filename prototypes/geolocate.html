@@ -1,0 +1,24 @@
+<html>
+<body>
+<p id="result">
+looking for location...
+</p>
+<script>
+function success(position) {
+	var s = document.querySelector('#result');
+	s.innerHTML = "" + position.coords.latitude + ", " + position.coords.longitude;
+}
+
+function error(msg) {
+	var s = document.querySelector('#result');
+	s.innerHTML = msg;
+}
+
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(success, error);
+} else {
+	error('not supported');
+}
+</script>
+</body>
+</html>
