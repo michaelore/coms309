@@ -1,4 +1,18 @@
 Coms309::Application.routes.draw do
+  get "user/create"
+
+  get "user/destroy"
+
+  get "user/update"
+
+  get "user/index"
+
+  get "user/show"
+
+  get "user/new"
+
+  get "user/edit"
+
   get "route/create"
 
   get "route/destroy"
