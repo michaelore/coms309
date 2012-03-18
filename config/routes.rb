@@ -1,4 +1,18 @@
 Coms309::Application.routes.draw do
+  get "location/create"
+
+  get "location/destroy"
+
+  get "location/update"
+
+  get "location/index"
+
+  get "location/show"
+
+  get "location/new"
+
+  get "location/edit"
+
   get "coordinate/create"
 
   get "coordinate/destroy"
