@@ -1,0 +1,3 @@
+class Coordinate < ActiveRecord::Base
+	belongs_to :location
+end
