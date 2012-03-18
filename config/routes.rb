@@ -1,4 +1,12 @@
 Coms309::Application.routes.draw do
+  get "coordinate/create"
+
+  get "coordinate/destroy"
+
+  get "coordinate/index"
+
+  get "coordinate/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
