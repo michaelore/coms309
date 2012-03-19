@@ -1,9 +1,9 @@
 Coms309::Application.routes.draw do
 
-  map.resources :users
-  map.resources :routes
-  map.resources :locations
-  map.resources :coordinates
+  resources :users
+  resources :routes
+  resources :locations
+  resources :coordinates
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
