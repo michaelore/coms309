@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120317230222) do
+ActiveRecord::Schema.define(:version => 20120319153326) do
 
   create_table "coordinates", :force => true do |t|
     t.float    "latitude"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20120317230222) do
     t.text     "vertices"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "start_id"
+    t.integer  "end_id"
   end
 
   create_table "users", :force => true do |t|
