@@ -1,53 +1,9 @@
 Coms309::Application.routes.draw do
-  get "user/create"
 
-  get "user/destroy"
-
-  get "user/update"
-
-  get "user/index"
-
-  get "user/show"
-
-  get "user/new"
-
-  get "user/edit"
-
-  get "route/create"
-
-  get "route/destroy"
-
-  get "route/update"
-
-  get "route/index"
-
-  get "route/show"
-
-  get "route/new"
-
-  get "route/edit"
-
-  get "location/create"
-
-  get "location/destroy"
-
-  get "location/update"
-
-  get "location/index"
-
-  get "location/show"
-
-  get "location/new"
-
-  get "location/edit"
-
-  get "coordinate/create"
-
-  get "coordinate/destroy"
-
-  get "coordinate/index"
-
-  get "coordinate/show"
+  map.resources :users
+  map.resources :routes
+  map.resources :locations
+  map.resources :coordinates
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
