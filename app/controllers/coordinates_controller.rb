@@ -30,7 +30,7 @@ class CoordinatesController < ApplicationController
   def show
     @coordinates = Coordinate.find(params[:id])
     respond_to do |format|
-      format.json { render :json => @coordinate }
+      format.json { render :json => @coordinates }
     end
   end
 
