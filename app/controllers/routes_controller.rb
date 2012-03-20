@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class RoutesController < ApplicationController
   def create
   end
 

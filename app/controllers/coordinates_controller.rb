@@ -1,4 +1,4 @@
-class CoordinateController < ApplicationController
+class CoordinatesController < ApplicationController
   def create
     @coordinate = Coordinate.new(params[:post])
     respond_to do |format|
