@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
     @location = Location.new(params[:post])
     respond_to do |format|
       if @location.save
-        format.html { redirect_to(@locations, :notice => 'Location was successfully created.') }
+        format.html { redirect_to(@location, :notice => 'Location was successfully created.') }
         format.json { head :created, :location => @location }
       else
         format.html { redirect_to(@location, :action => 'new', :notice => 'Location could not be created.') }
