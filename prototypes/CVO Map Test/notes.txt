@@ -1,0 +1,7 @@
+How to DOM Traverse to the map_canvas ID in the Googlemapshello.html file.
+
+javascript:
+window.frames[0].document.getElementById('map_canvas')
+
+jQuery:
+$(window.frames[0].window.document).contents().find("#map_canvas");
