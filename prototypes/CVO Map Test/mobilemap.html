@@ -25,7 +25,7 @@
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="plus" class="ui-btn-active">
+                            <a href="#page1" data-theme="" data-icon="plus" class="ui-btn-active" onClick="createLocationCall()">
                                 Create Location
                             </a>
                         </li>
@@ -83,4 +83,14 @@
             </div>
         </div>
     </body>
+	
+	<script type="text/javascript">
+      
+	
+	function createLocationCall() {
+		window.frames[0].createLocation();
+	}
+    </script>
+	
+	
 </html>
