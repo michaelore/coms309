@@ -1,0 +1,31 @@
+<html>
+<body>
+<ul id="results">
+</ul>
+<script>
+function success(position) {
+	var s = document.querySelector('#results');
+	var li = document.createElement('li');
+	li.innerHTML = "" + position.coords.latitude + ", " + position.coords.longitude + ", +-" + position.coords.accuracy;
+	s.insertBefore(li, s.firstChild);
+}
+
+function error(msg) {
+	var s = document.querySelector('#result');
+	var li = document.createElement('li');
+	li.innerHTML = msg;
+	s.insertBefore(li, s.firstChild);
+}
+
+function track() {
+	navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true });
+}
+
+if (navigator.geolocation) {
+	window.setInterval(track, 5000);
+} else {
+	error('not supported');
+}
+</script>
+</body>
+</html>
