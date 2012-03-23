@@ -28,7 +28,6 @@
 	  
 	  
 	  function setLocation(lat,lng){
-	  
 	var stockholm = new google.maps.LatLng(lat, lng);
 	var parliament = new google.maps.LatLng(lat, lng);
 	var marker;
@@ -51,7 +50,7 @@
 	  }
 	  
 	  function success(position) {
-		setLocation(position.coords.latitute, position.coords.longitude);
+		setLocation(position.coords.latitude, position.coords.longitude);
 	//var s = document.querySelector('#results');
 	//var li = document.createElement('li');
 	//li.innerHTML = "" + position.coords.latitude + ", " + position.coords.longitude + ", +-" + position.coords.accuracy;
