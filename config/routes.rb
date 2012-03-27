@@ -5,6 +5,14 @@ Coms309::Application.routes.draw do
   resources :locations
   resources :coordinates
 
+  match '/login' => 'content#login'
+  match '/search' => 'content#search'
+  match '/history' => 'content#history'
+  match '/map' => 'content#map'
+  match '/home' => 'content#home'
+
+  root :to => 'content#home'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
