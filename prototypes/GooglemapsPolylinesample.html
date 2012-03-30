@@ -11,7 +11,9 @@
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC9o76zOwOauN1noJbbf1XC0z2oX1B-GVY&sensor=true">
     </script>
     <script type="text/javascript">
-      function initialize() {
+     
+	var flightPlanCoordinates;
+	 function initialize() {
   var myLatLng = new google.maps.LatLng(0, -180);
   var myOptions = {
     zoom: 3,
@@ -21,7 +23,7 @@
 
   var map = new google.maps.Map(document.getElementById("map_canvas"),
       myOptions);
-  var flightPlanCoordinates = [
+  flightPlanCoordinates = [
     new google.maps.LatLng(37.772323, -122.214897),
     new google.maps.LatLng(21.291982, -157.821856),
     new google.maps.LatLng(-18.142599, 178.431),
