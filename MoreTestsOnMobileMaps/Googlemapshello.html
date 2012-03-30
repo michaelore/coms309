@@ -21,16 +21,20 @@
             myOptions);
       }
 	  
+	  var curLocation;
 	  function createLocation(){
+		track();
+		setLocation();
+	  }
 	  
-	var stockholm = new google.maps.LatLng(59.32522, 18.07002);
-	var parliament = new google.maps.LatLng(59.327383, 18.06747);
+	  
+	  function setLocation(){
 	var marker;
 	var map;
 	var mapOptions = {
 		zoom: 13,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		center: stockholm
+		center: curLocation
 	};
 	map = new google.maps.Map(document.getElementById('map_canvas'),
 		mapOptions);
@@ -39,10 +43,30 @@
 		map:map,
 		draggable:true,
 		animation: google.maps.Animation.DROP,
-		position: parliament
+		position: curLocation
 	});
 	  
 	  }
+	  
+	  
+	 
+function success(position) {
+	  curLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		
+	
+}
+
+function error(msg) {
+	var s = document.querySelector('#result');
+	var li = document.createElement('li');
+	li.innerHTML = msg;
+	s.insertBefore(li, s.firstChild);
+}
+
+function track() {
+	navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true });
+}
+	  
 	  
     </script>
   </head>
