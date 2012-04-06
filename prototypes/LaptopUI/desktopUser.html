@@ -2,9 +2,16 @@
 <HEAD>
 	<TITLE>DigiTravel Desktop</TITLE>
 	<link rel="stylesheet" href="css/theme.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/jquery-ui-1.8.18.custom.css" type="text/css" media="screen">
 	<SCRIPT type="text/javascript" src="js/jquery-1.7.1.min.js"></SCRIPT>
 	<SCRIPT type="text/javascript" src="js/jquery.layout-latest.js"></SCRIPT>
 	<script src="js/jquery-ui-1.8.18.custom.min.js"></script>
+	<style>
+		html {
+				/* allow scrolling if layout hits min-width/height */
+				overflow:		auto !important; /* override Layout default of 'hidden' */
+			}
+	</style>
 	<SCRIPT type="text/javascript">
 		$(document).ready(function () {
 			pageLayout = $('body').layout({
@@ -14,14 +21,58 @@
 			slidable:  false,
 			togglerLength_closed:  0,
 			});
+			pageLayout.sizePane("north", 50);
+		});
+		$(function() {
+			$( "#accordion" ).accordion();
+		});
+		$(function() {
+			$( "input:submit, a, button", ".demo" ).button();
+			$( "a", ".demo" ).click(function() { return false; });
 		});
 	</SCRIPT>
 </HEAD>
 <BODY>
-	<DIV class="ui-layout-pane ui-layout-center">Center</DIV>
-	<DIV class="ui-layout-pane ui-layout-north">North</DIV>
-	<DIV class="ui-layout-pane ui-layout-south">South</DIV>
-	<DIV class="ui-layout-pane ui-layout-west">West</DIV>
+	<!--Header Navigation-->
+	<DIV class="ui-layout-pane ui-layout-north" style="height:50px;">
+		<img src="images/dt_micro.png" alt="DigiTravel" style="float:left;margin-left:20px;margin-top:2px;">
+		<div class="demo" style="margin-left:50px;">
+			<button>A button element</button>
+			<input type="submit" value="A submit button">
+			<a href="#">An anchor</a>
+		</div>
+	</DIV>
+	
+	<!--Center Content-->
+	<DIV class="ui-layout-pane ui-layout-center">
+		<iframe id="map_frame" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="Googlemapshello.html"></iframe>
+	</DIV>
+	
+	<!--Left Navigation-->
+	<DIV class="ui-layout-pane ui-layout-west">
+		<div id="accordion">
+			<h3><a href="#">Session Routes</a></h3>
+			<div>
+				<p>
+				Session Routes go here with links that change the content in the center content area.
+				</p>
+			</div>
+			<h3><a href="#">Route History</a></h3>
+			<div>
+				<p>
+				Route History links go here that change the content in the center content area.
+				</p>
+			</div>
+		</div>
+	</DIV>
+	
+	<!--Footer-->
+	<DIV class="ui-layout-pane ui-layout-south">
+		<h5 style="color: #333;text-shadow: 0 1px 0 white;margin-left:35%;">
+			&copy; 2012 CS309 Team F2. All Rights Reserved.
+		</h5>
+	</DIV>
+	
 	<script type="text/javascript">
 		//remove the pane backgrounds and borders
 		//must go here because it has to run after they've loadeded.
