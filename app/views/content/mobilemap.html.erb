@@ -16,7 +16,8 @@
     </head>
     <body>
         <div data-role="page" data-theme="b" id="page10">
-            <div data-theme="b" data-role="header">
+            <div data-theme="b" data-role="header" data-position="inline">
+				<a href="home.html" data-icon="home" data-theme="a">Home</a>
                 <h1>
                     Mobile Map
                 </h1>
@@ -44,20 +45,9 @@
                 <div>
                     <img src="https://codiqa.com/static/images/v2/image_component.jpg" />
                 </div>
-                <div data-role="navbar" data-iconpos="top">
-                    <ul>
-                        <li>
-                            <a href="#page1" data-theme="" data-icon="plus" class="ui-btn-active">
-                                Make Route
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#page1" data-theme="" data-icon="arrow-u">
-                                Grab Route
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <a href="#page1" data-role="button" data-theme="b" data-icon="plus" data-inline="true">Like</a>
+                <a href="#page1" data-role="button" data-theme="c" data-icon="plus" data-inline="true">Dislike</a>
+				<a href="#page1" data-role="button" data-theme="b" data-icon="star" data-inline="true">Favorite</a>
                 <h4>
                     Route Statistics:
                 </h4>
@@ -78,7 +68,7 @@
             </div>
             <div data-theme="b" data-role="footer">
                 <h5>
-                    © 2012 CS309 Team F2. All Rights Reserved.
+                    &amp; 2012 CS309 Team F2. All Rights Reserved.
                 </h5>
             </div>
         </div>

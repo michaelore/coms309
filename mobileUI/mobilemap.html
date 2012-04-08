@@ -16,7 +16,8 @@
     </head>
     <body>
         <div data-role="page" data-theme="b" id="page10">
-            <div data-theme="b" data-role="header">
+            <div data-theme="b" data-role="header" data-position="inline">
+				<a href="home.html" data-icon="home" data-theme="c">Home</a>
                 <h1>
                     Mobile Map
                 </h1>
@@ -25,40 +26,29 @@
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="plus" class="ui-btn-active">
+                            <a href="#page1" data-theme="" data-icon="plus">
                                 Create Location
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="delete">
-                                Remove Location
+                            <a href="#page1" data-theme="" data-icon="grid">
+                                Zoom to Current Location
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="grid">
-                                Move Location
+                            <a href="#page1" data-theme="" data-icon="search">
+                                Search Routes
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div>
                     <img src="https://codiqa.com/static/images/v2/image_component.jpg" />
-                </div>
-                <div data-role="navbar" data-iconpos="top">
-                    <ul>
-                        <li>
-                            <a href="#page1" data-theme="" data-icon="plus" class="ui-btn-active">
-                                Make Route
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#page1" data-theme="" data-icon="arrow-u">
-                                Grab Route
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <h4>
+                </div>			
+                <a href="#page1" data-role="button" data-theme="b" data-icon="plus" data-inline="true">Like</a>
+                <a href="#page1" data-role="button" data-theme="c" data-icon="plus" data-inline="true">Dislike</a>
+				<a href="#page1" data-role="button" data-theme="b" data-icon="star" data-inline="true">Favorite</a>
+				<h4>
                     Route Statistics:
                 </h4>
                 <div class="ui-grid-a">

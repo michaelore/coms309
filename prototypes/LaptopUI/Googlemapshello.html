@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC9o76zOwOauN1noJbbf1XC0z2oX1B-GVY&sensor=true">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var myOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            myOptions);
+      }
+	  
+	  function createLocation(){
+		
+		track();
+	  }
+	  
+	  
+	  function setLocation(lat,lng){
+	var stockholm = new google.maps.LatLng(lat, lng);
+	var parliament = new google.maps.LatLng(lat, lng);
+	var marker;
+	var map;
+	var mapOptions = {
+		zoom: 13,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		center: stockholm
+	};
+	map = new google.maps.Map(document.getElementById('map_canvas'),
+		mapOptions);
+
+	marker = new google.maps.Marker({
+		map:map,
+		draggable:true,
+		animation: google.maps.Animation.DROP,
+		position: parliament
+	});
+	  
+	  }
+	  
+	  function success(position) {
+		setLocation(position.coords.latitude, position.coords.longitude);
+	//var s = document.querySelector('#results');
+	//var li = document.createElement('li');
+	//li.innerHTML = "" + position.coords.latitude + ", " + position.coords.longitude + ", +-" + position.coords.accuracy;
+	//s.insertBefore(li, s.firstChild);
+}
+
+function error(msg) {
+	var s = document.querySelector('#result');
+	var li = document.createElement('li');
+	li.innerHTML = msg;
+	s.insertBefore(li, s.firstChild);
+}
+
+function track() {
+	navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true });
+}
+	  
+	  
+    </script>
+  </head>
+  <body onload="initialize()">
+    <div id="map_canvas" style="width:100%; height:100%"></div>
+  </body>
+</html>
