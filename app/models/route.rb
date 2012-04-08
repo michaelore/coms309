@@ -4,11 +4,11 @@ class Route < ActiveRecord::Base
 	belongs_to :ending, :class_name => "Location", :inverse_of => :routes_entering
 
 	def distance
-		lat1 = start.latitude*Math.pi/180
-		lon1 = start.longitude*Math.pi/180
-		lat2 = ending.latitude*Math.pi/180
-		lon2 = ending.longitude*Math.pi/180
-		a = Math.sin((lat2-lat1)/2)**2+Math.cos(lat1)*Math.cos(lat2)*sin((lon2-lon1)/2)**2
+		lat1 = start.avgLat*Math::PI/180
+		lon1 = start.avgLon*Math::PI/180
+		lat2 = ending.avgLat*Math::PI/180
+		lon2 = ending.avgLon*Math::PI/180
+		a = Math.sin((lat2-lat1)/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin((lon2-lon1)/2)**2
 		c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
 		return 6367500*c
 	end
