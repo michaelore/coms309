@@ -4,13 +4,17 @@ class Route < ActiveRecord::Base
 	belongs_to :ending, :class_name => "Location", :inverse_of => :routes_entering
 
 	def distance
-		lat1 = start.avgLat*Math::PI/180
-		lon1 = start.avgLon*Math::PI/180
-		lat2 = ending.avgLat*Math::PI/180
-		lon2 = ending.avgLon*Math::PI/180
-		a = Math.sin((lat2-lat1)/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin((lon2-lon1)/2)**2
-		c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-		return 6367500*c
+		coordinates = vertices.map {|v| Coordinate.find(v)}
+		if coordinates.length == 0
+			return Coordinate.distance(start.avgLat, start.avgLon, ending.avgLat, ending.avgLon)
+		end
+		sum = 0
+		sum += Coordinate.distance(start.avgLat, start.avgLon, coordinates[0].latitude, coordinates[0].longitude)
+		sum += Coordinate.distance(ending.avgLat, ending.avgLon, coordinates[-1].latitude, coordinates[-1].longitude)
+		(0..(coordinates.length-2)).each do |i|
+			sum += Coordinate.distance(coordinates[i].latitude, coordinates[i].longitude, coordinates[i+1].latitude, coordinates[i+1].longitude)
+		end
+		return sum
 	end
 
 	def deep
