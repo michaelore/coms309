@@ -30,10 +30,6 @@
 	 //button
 	  function createLocation(){
 		track(setLocation);
-		window.setTimeout(setLocation(),100);
-		
-		alert("wtf");
-		
 	  }
 	  
 	  //updates map
@@ -86,10 +82,6 @@ function track(func) {
 var locations	  
 function createRoute(){
 	track(setRoute);
-	window.setTimeout(setRoute(),100);
-		
-
-	
 }	  
 
 
@@ -125,9 +117,13 @@ locations = [    new google.maps.LatLng(curLat, curLng)];
 
 }
 
-function makePoint(){
-	track();
-	
+function createPoint(){
+	track(setPoint);
+}
+
+function setPoint(){
+
+	var curLocation = new google.maps.LatLng(curLat, curLng);
 	var map;
 	var mapOptions = {
 		zoom: 13,
@@ -136,7 +132,14 @@ function makePoint(){
 	};
 	map = new google.maps.Map(document.getElementById('map_canvas'),
 		mapOptions);
-		
+	
+	var marker = new google.maps.Marker({
+		map:map,
+		draggable:true,
+		animation: google.maps.Animation.DROP,
+		position: curLocation
+	});
+	
 	locations.push(new google.maps.LatLng(curLat, curLng));
 	var route = new google.maps.Polyline({
     path: locations,
@@ -145,10 +148,7 @@ function makePoint(){
     strokeWeight: 2
   });
   route.setMap(map);
-  
 }
-
-
 	  
     </script>
   </head>
