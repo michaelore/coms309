@@ -35,4 +35,14 @@ class Route < ActiveRecord::Base
 		end
 		return comps
 	end
+	
+	def self.getMinimalCompositeBy(method, startID, endingID, depth)
+		bestComp = nil
+		getCompositeRoutes(startID, endingID, depth).each do |comp|
+			if bestComp == nil || bestComp.inject(0) {|sum, r| sum+r.send(method)} > comp.inject(0) {|sum, r| sum+r.send(method)}
+				bestComp = comp
+			end
+		end
+		return bestComp
+	end
 end
