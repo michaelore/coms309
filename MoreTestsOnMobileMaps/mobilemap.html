@@ -35,8 +35,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="grid">
-                                Move Location
+                            <a href="#page1" data-theme="" data-icon="grid" onClick="createPointCall()">
+                                Set Route Point
                             </a>
                         </li>
                     </ul>
@@ -92,7 +92,11 @@
 	}
 	
 	function makeRouteCall(){
-		window.frames[0].makeRoute();
+		window.frames[0].createRoute();
+	}
+	
+	function createPointCall(){
+		window.frames[0].createPoint();
 	}
 	
     </script>

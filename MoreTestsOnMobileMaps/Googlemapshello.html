@@ -30,10 +30,6 @@
 	 //button
 	  function createLocation(){
 		track(setLocation);
-		window.setTimeout(setLocation(),100);
-		
-		alert("wtf");
-		
 	  }
 	  
 	  //updates map
@@ -84,27 +80,31 @@ function track(func) {
 	  
 	  
 var locations	  
-function makeRoute(){
-	track();
-	
-	
-	
-	locations = [new google.maps.LatLng(curLat, curLng)];
-	
-	var route = new google.maps.Polyline({
-    path: locations,
-    strokeColor: "#FF0000",
-    strokeOpacity: 1.0,
-    strokeWeight: 2
-  });
-  route.setMap(map);
-  window.setTimeout(setLocation(),1000);
+function createRoute(){
+	track(setRoute);
 }	  
 
-function makePoint(){
-	track();
-	
-	locations.push(new google.maps.LatLng(curLat, curLng));
+
+function setRoute(){	
+	var curLocation = new google.maps.LatLng(curLat, curLng);
+	var marker;
+	var map;
+	var mapOptions = {
+		zoom: 13,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		center: curLocation
+	};
+	map = new google.maps.Map(document.getElementById('map_canvas'),
+		mapOptions);
+
+	marker = new google.maps.Marker({
+		map:map,
+		draggable:true,
+		animation: google.maps.Animation.DROP,
+		position: curLocation
+	});
+
+locations = [    new google.maps.LatLng(curLat, curLng)];
 	
 	var route = new google.maps.Polyline({
     path: locations,
@@ -113,10 +113,41 @@ function makePoint(){
     strokeWeight: 2
   });
   route.setMap(map);
-  
+
+
 }
 
-function yo(){
+function createPoint(){
+	track(setPoint);
+}
+
+function setPoint(){
+
+	var curLocation = new google.maps.LatLng(curLat, curLng);
+	var map;
+	var mapOptions = {
+		zoom: 13,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		center: curLocation
+	};
+	map = new google.maps.Map(document.getElementById('map_canvas'),
+		mapOptions);
+	
+	var marker = new google.maps.Marker({
+		map:map,
+		draggable:true,
+		animation: google.maps.Animation.DROP,
+		position: curLocation
+	});
+	
+	locations.push(new google.maps.LatLng(curLat, curLng));
+	var route = new google.maps.Polyline({
+    path: locations,
+    strokeColor: "#FF0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+  route.setMap(map);
 }
 	  
     </script>
