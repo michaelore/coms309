@@ -27,8 +27,8 @@
 			$( "#accordion" ).accordion();
 		});
 		$(function() {
-			$( "input:submit, a, button", ".demo" ).button();
-			$( "a", ".demo" ).click(function() { return false; });
+			$( "button", ".routeModBtns" ).button();
+			$( "a", ".demo" ).click(function() { alert("test") });
 		});
 	</SCRIPT>
 </HEAD>
@@ -36,10 +36,14 @@
 	<!--Header Navigation-->
 	<DIV class="ui-layout-pane ui-layout-north" style="height:50px;">
 		<img src="images/dt_micro.png" alt="DigiTravel" style="float:left;margin-left:20px;margin-top:2px;">
-		<div class="demo" style="margin-left:50px;">
-			<button>A button element</button>
-			<input type="submit" value="A submit button">
-			<a href="#">An anchor</a>
+		<div class="routeModBtns" style="margin-left:200px; margin-top:10px;">
+			<button>New</button>
+			<button>Rename</button>
+			<button>Edit</button>
+			<button>Save</button>
+			<button>Delete</button>
+			<button>Build Fast Route</button>
+			<button style="float:right;margin-right:20px;">Log Out</button>
 		</div>
 	</DIV>
 	
