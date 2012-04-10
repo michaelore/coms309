@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-	<TITLE>DigiTravel Desktop</TITLE>
+	<TITLE>DigiTravel Admin</TITLE>
 	<link rel="stylesheet" href="css/theme.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/jquery-ui-1.8.18.custom.css" type="text/css" media="screen">
 	<SCRIPT type="text/javascript" src="js/jquery-1.7.1.min.js"></SCRIPT>
@@ -23,18 +23,14 @@
 			togglerLength_closed:  0,
 			});
 			pageLayout.sizePane("north", 50);
+			pageLayout.sizePane("west", 250);
 		});
 		$(function() {
 			$( "#accordion" ).accordion({fillSpace: true});
-			$( "button", "#accordion" ).button({icons:{secondary:"ui-icon-carat-1-e"}});
-			$( "#logout", ".routeModBtns").button({icons:{primary:"ui-icon-power"}});
-			$( "#rename", ".routeModBtns").button({icons:{primary:"ui-icon-arrowrefresh-1-w"}});
-			$( "#edit", ".routeModBtns").button({icons:{primary:"ui-icon-scissors"}});
-			$( "#save", ".routeModBtns").button({icons:{primary:"ui-icon-tag"}});
-			$( "#delete", ".routeModBtns").button({icons:{primary:"ui-icon-closethick"}});
-			$( "#buildFS", ".routeModBtns").button({icons:{primary:"ui-icon-shuffle"}});
-			$( "#new", ".routeModBtns").button({icons:{primary:"ui-icon-star"}});
 			$( "button", ".routeModBtns" ).button();
+			$( "button", ".userList" ).button({icons:{secondary:"ui-icon-carat-1-e"}});
+			$( "#logout", ".routeModBtns").button({icons:{primary:"ui-icon-power"}});
+			$( "input:submit", "#acctBtns" ).button();
 		});
 	</SCRIPT>
 </HEAD>
@@ -43,40 +39,62 @@
 	<DIV class="ui-layout-pane ui-layout-north" style="height:50px;">
 		<img src="images/dt_micro.png" alt="DigiTravel" style="float:left;margin-left:20px;margin-top:2px;">
 		<div class="routeModBtns" style="margin-left:120px; margin-top:10px;">
-			<h2 style="display:inline">Route Management: </h2>
-			<button id="new">New</button>
-			<button id="rename">Rename</button>
-			<button id="edit">Edit</button>
-			<button id="save">Save</button>
-			<button id="delete">Delete</button>
-			<button id="buildFS">Build Fast Route</button>
+			<h2 style="display:inline">DigiTravel Administration</h2>
 			<button id="logout" style="float:right;margin-right:20px;">Log Out</button>
 		</div>
 	</DIV>
 	
 	<!--Center Content-->
 	<DIV class="ui-layout-pane ui-layout-center">
-		<iframe id="map_frame" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="Googlemapshello.html"></iframe>
+		<h3 id="userBar">User Administration for [Username]</h3>
+		<div id="acctBtns" style="margin-left:15px;">
+			<h4>Remove Account</h4>
+				<div style="margin-left:15px;">
+					<form name="removeacct" action="#index.html" method="post">
+					<p>Username: [Username]</p>
+					<input type="hidden" name="username" value="[username]">
+					<input type="submit" value="Remove Account">
+					</form>
+				</div>
+			<h4>Reset Password</h4>
+				<div style="margin-left:15px;">
+					<form name="resetpwd" action="#index.html" method="post">
+					<input type="hidden" name="username" value="[username]">
+					<p>Old Password:</p>
+					<input type="password" name="passwordold">
+					<p>New Password:</p>
+					<input type="password" name="passwordnew">
+					<p>Confirm New Password:</p>
+					<input type="password" name="passwordnew2"><br/>
+					<input id="resetpwdSubmit" type="submit" value="Reset Password">
+					</form>
+				</div>
+		</div>
 	</DIV>
 	
 	<!--Left Navigation-->
 	<DIV class="ui-layout-pane ui-layout-west">
-		<div id="accordion">
-			<h3><a href="#">Session Routes</a></h3>
-			<div>
-				<p>
-				Session Routes go here with links that change the content in the center content area.
-				</p>
-				<button>Route XYZ</button>
-				<button>Route XYZ</button>
-			</div>
-			<h3><a href="#">Route History</a></h3>
-			<div>
-				<p>
-				Route History links go here that change the content in the center content area.
-				</p>
-				<button>Route XYZ</button>
-				<button>Route XYZ</button>
+		<div id="accordion" style="height:100%">
+			<h3><a href="#">User Accounts</a></h3>
+			<div class="userList">
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
+				<button>UsrAcct Name</button>
 			</div>
 		</div>
 	</DIV>
