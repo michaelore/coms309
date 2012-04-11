@@ -11,39 +11,41 @@
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC9o76zOwOauN1noJbbf1XC0z2oX1B-GVY&sensor=true">
     </script>
     <script type="text/javascript">
-      function initialize() {
-        var myOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"),
-            myOptions);
-      }
-	  
-	  var curLocation = new google.maps.LatLng(34.397, 50.644);
-	  var curLat;
-	  var curLng;
-	  var trackSuccessFlag = false
-	 
+var map;
 
-	 //button
-	  function createLocation(){
-		track(setLocation);
-	  }
+function initialize() {
+    var myOptions = {
+        center: new google.maps.LatLng(-34.397, 150.644),
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"),
+    myOptions);
+}
 	  
-	  //updates map
-	  function setLocation(){
-	  var curLocation = new google.maps.LatLng(curLat, curLng);
+var curLocation = new google.maps.LatLng(34.397, 50.644);
+var curLat;
+var curLng;
+var trackSuccessFlag = false;
+var myZoom;	 
+
+//button
+function createLocation(){
+	track(setLocation);
+}
+	  
+//updates map
+function setLocation(){
+	var curLocation = new google.maps.LatLng(curLat, curLng);
 	var marker;
-	var map;
+	myZoom = map.getZoom();
 	var mapOptions = {
-		zoom: 13,
+		zoom: myZoom,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		center: curLocation
 	};
 	map = new google.maps.Map(document.getElementById('map_canvas'),
-		mapOptions);
+	mapOptions);
 
 	marker = new google.maps.Marker({
 		map:map,
@@ -52,7 +54,7 @@
 		position: curLocation
 	});
 	  
-	  }
+}
 	  
 	  
 	 
@@ -61,7 +63,7 @@ function success(position) {
 	 curLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	  curLat = position.coords.latitude;
 	  curLng = position.coords.longitude;
-	 trackSuccessFlag = true
+	 trackSuccessFlag = true;
 }
 
 function error(msg) {
@@ -88,7 +90,6 @@ function createRoute(){
 function setRoute(){	
 	var curLocation = new google.maps.LatLng(curLat, curLng);
 	var marker;
-	var map;
 	var mapOptions = {
 		zoom: 13,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -124,7 +125,7 @@ function createPoint(){
 function setPoint(){
 
 	var curLocation = new google.maps.LatLng(curLat, curLng);
-	var map;
+	
 	var mapOptions = {
 		zoom: 13,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
