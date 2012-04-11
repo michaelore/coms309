@@ -17,24 +17,26 @@
                 </h3>
             </div>
             <div data-role="content">
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                        <label for="textinput1">
-                            Email Address
-                        </label>
-                        <input id="textinput1" placeholder="" value="" type="email" />
-                    </fieldset>
-                </div>
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                        <label for="textinput2">
-                            Password
-                        </label>
-                        <input id="textinput2" placeholder="" value="" type="password" />
-                    </fieldset>
-                </div>
-                <input type="submit" data-theme="b" data-icon="forward" data-iconpos="left" value="Login" />
-                <input type="submit" data-theme="e" data-icon="arrow-u" data-iconpos="left" value="Register" />
+				<form name="login" action="#index.html" method="post">
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<label for="textinput1">
+								Email Address
+							</label>
+							<input id="textinput1" placeholder="" value="" type="email" />
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<label for="textinput2">
+								Password
+							</label>
+							<input id="textinput2" placeholder="" value="" type="password" />
+						</fieldset>
+					</div>
+					<input type="submit" name="submit" value="login" data-theme="b" data-icon="forward" data-iconpos="left"/>
+					<input type="submit" name="submit" value="register" data-theme="e" data-icon="arrow-u" data-iconpos="left"/>
+				</form>
             </div>
             <div data-theme="b" data-role="footer">
                 <h5>
