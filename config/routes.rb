@@ -1,11 +1,15 @@
 Coms309::Application.routes.draw do
 
+  get "sessions/create"
+
+  get "sessions/delete"
+
   resources :users
   resources :routes
   resources :locations
   resources :coordinates
 
-  match '/login' => 'content#login'
+  match '/login' => 'sessions#new'
   match '/search' => 'content#search'
   match '/history' => 'content#history'
   match '/map' => 'content#map'
