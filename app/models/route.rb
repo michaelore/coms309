@@ -2,6 +2,7 @@ class Route < ActiveRecord::Base
 	serialize :vertices
 	belongs_to :start, :class_name => "Location", :inverse_of => :routes_leaving
 	belongs_to :ending, :class_name => "Location", :inverse_of => :routes_entering
+	has_many :ratings
 
 	def distance
 		coordinates = vertices.map {|v| Coordinate.find(v)}

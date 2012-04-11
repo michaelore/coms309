@@ -83,6 +83,7 @@ class Agent
 		when /gecko/i		; :gecko
 		when /msie/i		; :msie
 		else				  :unknow
+		end
 	end
 	
 	def self.name_for_user_agent string
