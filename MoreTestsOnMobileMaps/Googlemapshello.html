@@ -12,7 +12,9 @@
     </script>
     <script type="text/javascript">
 var map;
-
+/**
+This function initializes the map in the window.
+*/
 function initialize() {
     var myOptions = {
         center: new google.maps.LatLng(-34.397, 150.644),
@@ -22,19 +24,30 @@ function initialize() {
     map = new google.maps.Map(document.getElementById("map_canvas"),
     myOptions);
 }
-	  
-var curLocation = new google.maps.LatLng(34.397, 50.644);
-var curLat;
-var curLng;
-var trackSuccessFlag = false;
-var myZoom;	 
 
-//button
+//this will hold the information of the current location  
+var curLocation = new google.maps.LatLng(34.397, 50.644);
+//this will hold the current lattitude.
+var curLat;
+//this will hold the current longitude
+var curLng;
+//this is a flag for if the track was successfull or not
+var trackSuccessFlag = false;
+//this is the users zoom level
+var myZoom;
+//this is an array that is used for making routes.
+var locations	  
+
+/**
+This is called by the called by a button and will create a marker at the users current location.
+*/
 function createLocation(){
 	track(setLocation);
 }
 	  
-//updates map
+/**
+This function takes in the currnt lat and lng to make a marker at the current position of the user, and moves the map to this location and keeps the same zoom level.
+*/
 function setLocation(){
 	var curLocation = new google.maps.LatLng(curLat, curLng);
 	var marker;
@@ -55,43 +68,51 @@ function setLocation(){
 	});
 	  
 }
-	  
-	  
-	 
+
+
+
+
+/**
+This function will find the current location of the user or through an error that will return a message to the user.  
+*/
+function track(func) {
+	navigator.geolocation.getCurrentPosition(function(position) {success(position); func();}, error, { enableHighAccuracy: true });
+}	  
+
+/**
+This function will also change the curLocation and  curLat, and curLng tot he current location of the user.
+*/
 function success(position) {
-	
-	 curLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	  curLat = position.coords.latitude;
-	  curLng = position.coords.longitude;
-	 trackSuccessFlag = true;
+	curLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	curLat = position.coords.latitude;
+	curLng = position.coords.longitude;
+	trackSuccessFlag = true;
 }
 
+/**
+This function will return an error message.
+*/
 function error(msg) {
-	var s = document.querySelector('#result');
-	var li = document.createElement('li');
-	li.innerHTML = msg;
-	s.insertBefore(li, s.firstChild);
+	alert(msg);
 	alert("error");
 }
 
-function track(func) {
 
-	navigator.geolocation.getCurrentPosition(function(position) {success(position); func();}, error, { enableHighAccuracy: true });
-
-}
-	  
-	  
-var locations	  
+/**
+This function is called by a button that will create a route
+*/
 function createRoute(){
 	track(setRoute);
 }	  
 
-
+/**
+This function will create the first part of a route by making the array and filling out the first location with the users current possition.
+*/
 function setRoute(){	
 	var curLocation = new google.maps.LatLng(curLat, curLng);
 	var marker;
 	var mapOptions = {
-		zoom: 13,
+		zoom: myZoom,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		center: curLocation
 	};
@@ -118,16 +139,24 @@ locations = [    new google.maps.LatLng(curLat, curLng)];
 
 }
 
+
+/**
+This function will be called by a button to make a point in a route that is currently active on the site.
+*/
 function createPoint(){
 	track(setPoint);
 }
 
+
+/**
+This function will create a point with in the route and make a marker at where the current position of the user is.
+*/
 function setPoint(){
 
 	var curLocation = new google.maps.LatLng(curLat, curLng);
 	
 	var mapOptions = {
-		zoom: 13,
+		zoom: myZoom,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		center: curLocation
 	};
@@ -150,7 +179,66 @@ function setPoint(){
   });
   route.setMap(map);
 }
-	  
+
+
+/**
+This function is called by a button to center the map to the users current location
+*/
+function toLocation(){
+	track(zoomToLocation);
+}
+
+/**
+This function will center the map on the current location of the user.
+*/
+function zoomToLocation(){
+	var curLocation = new google.maps.LatLng(curLat, curLng);
+	myZoom = map.getZoom();
+	var mapOptions = {
+		zoom: myZoom,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		center: curLocation
+	};
+	map = new google.maps.Map(document.getElementById('map_canvas'),
+	mapOptions);
+}
+
+
+/**
+This function will be called by a button to make a point at the users current location and then save and send all the information up to the database.  It will also allow the user to create a new rout and to name the route.
+*/
+function endRoute(){
+	
+	
+	
+}
+/**
+This function will send the information of the currently made route to the database.
+*/
+function submitRoute(){
+	
+	
+}
+/**
+This function will make a timer to see how long you have been makeing a route our how long you have been travelling on a route.
+*/
+function timer(){
+	
+}
+/**
+This function will give you and estimated time left on the route if the route was already made other wise it will display N/A
+*/
+function remainingTime(){
+	
+}
+
+/**
+This function will grab a route from the database and set it up on the map for the user.
+*/
+function grabRoute(){
+	
+}
+
     </script>
   </head>
   <body onload="initialize()">
