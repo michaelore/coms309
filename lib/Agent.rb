@@ -117,6 +117,15 @@ class Agent
 	def self.map os, options = {}
 		@agents << [os, options]
 	end
+	
+	def os_s
+		if(os_for_user_agent == 'iPad' || 'BalckBerry' || 'iPhone' || 'Android')
+			return true
+		end
+		else
+			return false
+		end
+	end
 end
 
 
