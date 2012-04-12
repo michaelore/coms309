@@ -3,6 +3,7 @@ class Route < ActiveRecord::Base
 	belongs_to :start, :class_name => "Location", :inverse_of => :routes_leaving
 	belongs_to :ending, :class_name => "Location", :inverse_of => :routes_entering
 	has_many :ratings
+	has_many :usages
 
 	def distance
 		coordinates = vertices.map {|v| Coordinate.find(v)}
