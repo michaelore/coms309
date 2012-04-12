@@ -119,9 +119,8 @@ class Agent
 	end
 	
 	def os_s
-		if(os_for_user_agent == 'iPad' || 'BalckBerry' || 'iPhone' || 'Android')
+		if(os == 'iPad' || os == 'BalckBerry' || os == 'iPhone' || os == 'Android')
 			return true
-		end
 		else
 			return false
 		end
