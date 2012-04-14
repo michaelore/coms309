@@ -44,7 +44,7 @@ function postLocation(lat, lng, name, acu){
 
 
 
-function postRoute(latlng, idstart, idend, acu){
+function postRoute(latlng, idstart, idend, acu, time){
 	
 	var lat;
 	var lng;
@@ -57,7 +57,7 @@ function postRoute(latlng, idstart, idend, acu){
 	$.ajax({
         type: "POST",
         url: '/admin/pages/1.json',
-        data: { _method:'POST', page : {Latitude : lat, Longitude: lng, Start Location: idstart, End Location: idend, Accuracy: acu} },
+        data: { _method:'POST', page : {Latitude : lat, Longitude: lng, Start Location: idstart, End Location: idend, Accuracy: acu, Time: time} },
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
