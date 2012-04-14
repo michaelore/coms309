@@ -1,21 +1,35 @@
 class ContentController < ApplicationController
-  def login
-    render :file => 'content/mobilelogin'
-  end
+  include ApplicationHelper
 
   def home
-    render :file => 'content/mobilehome'
+    if isMobile
+      render :file => 'content/mobilehome'
+    else
+      render :file => 'content/home'
+    end
   end
 
   def search
-    render :file => 'content/mobilesearch'
+    if isMobile
+      render :file => 'content/mobilesearch'
+    else
+      render :file => 'content/search'
+    end
   end
 
   def history
-    render :file => 'content/mobilehistory'
+    if isMobile
+      render :file => 'content/mobileshistory'
+    else
+      render :file => 'content/history'
+    end
   end
 
   def map
-    render :file => 'content/mobilemap'
+    if isMobile
+      render :file => 'content/mobilemap'
+    else
+      render :file => 'content/map'
+    end
   end
 end

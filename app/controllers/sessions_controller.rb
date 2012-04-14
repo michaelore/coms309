@@ -1,5 +1,12 @@
 class SessionsController < ApplicationController
+	include ApplicationHelper
+
 	def new
+		if isMobile
+			render :file => 'sessions/mobilenew'
+		else
+			render :file => 'sessions/new'
+		end
 	end
 	
 	def create
