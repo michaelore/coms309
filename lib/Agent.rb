@@ -102,14 +102,13 @@ class Agent
 		case string
 		when /windows nt 6\.0/i		; 'Windows Vista'
 		when /windows NT 6\.\d+/i	; 'Windos 7'
+		when /android/i				; 'Android'
 		when /ipad/i				; 'iPad'
 		when /linux/i				; 'Linux'
-		when /linux; u; android/i		; 'Android'
 		when /os x (\d+)[._](\d+)/i	; 'OS X #{$1}.#{$2}'
 		when /blackBerry/i			; 'BalckBerry'
 		when /iphone/i				; 'iPhone'
-		when /android/				; 'Android'
-		else						; Unknown
+		else						; 'Unknown'
 		end
 	end
 	
