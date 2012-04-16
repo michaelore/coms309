@@ -100,15 +100,16 @@ class Agent
 	
 	def self.os_for_user_agent string
 		case string
-		when /windows nt 6\.0/i		; :'Windows Vista'
-		when /windows NT 6\.\d+/i	; :'Windos 7'
-		when /ipad/i				; :'iPad'
-		when /linux/i				; :'Linux'
-		when /os x (\d+)[._](\d+)/i	; :'OS X #{$1}.#{$2}'
-		when /blackBerry/i			; :'BalckBerry'
-		when /iphone/i				; :'iPhone'
-		when /android/				; :'Android'
-		else						; :Unknown
+		when /windows nt 6\.0/i		; 'Windows Vista'
+		when /windows NT 6\.\d+/i	; 'Windos 7'
+		when /ipad/i				; 'iPad'
+		when /linux/i				; 'Linux'
+		when /linux; u; android/i		; 'Android'
+		when /os x (\d+)[._](\d+)/i	; 'OS X #{$1}.#{$2}'
+		when /blackBerry/i			; 'BalckBerry'
+		when /iphone/i				; 'iPhone'
+		when /android/				; 'Android'
+		else						; Unknown
 		end
 	end
 	
@@ -119,23 +120,10 @@ class Agent
 	end
 	
 	def os_s
-		if(os_for_user_agent == 'iPad' || 'BalckBerry' || 'iPhone' || 'Android')
+		if(os == 'iPad' || os == 'BalckBerry' || os == 'iPhone' || os == 'Android')
 			return true
-		end
 		else
 			return false
 		end
 	end
 end
-
-
-
-
-
-
-
-
-
-
-
-
