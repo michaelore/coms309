@@ -9,6 +9,7 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.mobile-1.0.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile.simpledialog2.min.js"></script>
+		<script src="js/jquery.timer.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				// $('#createlocation').remove();
@@ -43,6 +44,11 @@
 				window.frames[0].createPoint();
 			}
 		</script>
+		<script type="text/javascript">
+			$(function() {
+				$('#clock1').stopwatch();
+			});
+		</script>
     </head>
     <body>
         <div data-role="page" data-theme="b" id="page10">
@@ -62,7 +68,7 @@
                         </li>
                         <li>
                             <a href="#page1" id="zoomcurlocation" data-theme="" data-icon="grid">
-                                Zoom to Current Location
+                                Find Me
                             </a>
                         </li>
                         <li>
@@ -108,7 +114,7 @@
 						Distance Remaining
                     </div>
                     <div class="ui-block-a">
-						Time Elapsed
+						Time Elapsed: <div id="clock1" style="float:right;"></div> 
                     </div>
                     <div class="ui-block-b">
 						Time Remaining

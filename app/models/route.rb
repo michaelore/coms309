@@ -3,6 +3,9 @@ class Route < ActiveRecord::Base
 	belongs_to :start, :class_name => "Location", :inverse_of => :routes_leaving
 	belongs_to :ending, :class_name => "Location", :inverse_of => :routes_entering
 	has_many :ratings
+	has_many :raters, :class_name => "User", :through => :ratings, :source => :user
+	has_many :usages
+	has_many :affiliaters, :class_name => "User", :through => :usages, :source => :user
 
 	def distance
 		coordinates = vertices.map {|v| Coordinate.find(v)}
@@ -22,7 +25,16 @@ class Route < ActiveRecord::Base
 		start = Location.find(self.start_id)
 		ending = Location.find(self.ending_id)
 		vertices = self.vertices.map {|id| Coordinate.find(id)}
-		return {"start" => start, "ending" => ending, "vertices" => vertices}
+		likes = 0
+		dislikes = 0
+		ratings.each do |r|
+			if r.like == 1
+				likes += 1
+			elsif r.lik == -1
+				dislikes += 1
+			end
+		end
+		return {"start" => start, "ending" => ending, "vertices" => vertices, "likes" => likes, "dislikes" => dislikes}
 	end
 
 	def self.getCompositeRoutes(startID, endingID, depth)
