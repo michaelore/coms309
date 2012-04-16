@@ -4,6 +4,8 @@ Coms309::Application.routes.draw do
 
   get "sessions/delete"
 
+  get "routes/search"
+
   resources :users
   resources :routes
   resources :locations
