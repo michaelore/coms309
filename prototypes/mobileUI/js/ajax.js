@@ -29,7 +29,7 @@ function fillMyContacts(){
 function postLocation(lat, lng, name, acu){
 	$.ajax({
         type: "POST",
-        url: '/admin/pages/1.json',
+        url: 'digitravel.heroku.com/locations',
         data: { _method:'POST', page : {Latitude : lat, Longitude: lng, Name: name, Accuracy: acu} },
         dataType: 'json',
         success: function(msg) {
@@ -84,3 +84,29 @@ function favorite(){
 	
 	
 }
+
+
+function pullLocation(id){
+	
+}
+
+
+function pullRoute(id){
+	
+	
+	
+}
+
+function searchByKeyWord(keyword){
+
+
+
+}
+
+
+function searchByCorrdinates(){
+
+
+
+}
+
