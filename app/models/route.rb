@@ -25,7 +25,16 @@ class Route < ActiveRecord::Base
 		start = Location.find(self.start_id)
 		ending = Location.find(self.ending_id)
 		vertices = self.vertices.map {|id| Coordinate.find(id)}
-		return {"start" => start, "ending" => ending, "vertices" => vertices}
+		likes = 0
+		dislikes = 0
+		ratings.each do |r|
+			if r.like == 1
+				likes += 1
+			elsif r.lik == -1
+				dislikes += 1
+			end
+		end
+		return {"start" => start, "ending" => ending, "vertices" => vertices, "likes" => likes, "dislikes" => dislikes}
 	end
 
 	def self.getCompositeRoutes(startID, endingID, depth)
