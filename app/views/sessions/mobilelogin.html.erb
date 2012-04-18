@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>DigiTravel</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css" />
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.mobile-1.0.1.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" data-theme="b" id="page1">
+            <div data-theme="b" data-role="header">
+                <h3>
+                    DigiTravel - Login
+                </h3>
+            </div>
+            <div data-role="content">
+				<form name="login" action="#index.html" method="post">
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<label for="textinput1">
+								Email Address
+							</label>
+							<input id="textinput1" placeholder="" value="" type="email" />
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<label for="textinput2">
+								Password
+							</label>
+							<input id="textinput2" placeholder="" value="" type="password" />
+						</fieldset>
+					</div>
+					<input type="submit" name="submit" value="login" data-theme="b" data-icon="forward" data-iconpos="left"/>
+					<input type="submit" name="submit" value="register" data-theme="e" data-icon="arrow-u" data-iconpos="left"/>
+				</form>
+            </div>
+            <div data-theme="b" data-role="footer">
+                <h5>
+                    &copy; 2012 CS309 Team F2. All Rights Reserved.
+                </h5>
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>
