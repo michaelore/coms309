@@ -127,6 +127,7 @@
 		<script type="text/javascript">
             //Javascript mobile timer
 			var startTime;
+			var elapsedDate;
 			//make the timeout for running of currentTime its own variable so it can be enabled/disabled
 			var timeout;
 			function currentTime()
@@ -146,7 +147,7 @@
 			   //var outStr = days + ' days, ' + hours+ ' hours, ' + minutes;
 				 //  outStr+= ' minutes, ' + seconds + ' seconds elapsed'; 
 				 
-				 var elapsedDate = new Date();
+				 elapsedDate = new Date();
 				 elapsedDate.setHours(hours);
 				 elapsedDate.setMinutes(minutes);
 				 elapsedDate.setSeconds(seconds);
