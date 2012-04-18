@@ -39,7 +39,6 @@ function postLocation(lat, lng, name, acu){
 			alert( "Error: " + msg );
         }
 	});
-	
 }
 
 
