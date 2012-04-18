@@ -1,37 +1,6 @@
-	<style>
-		html {
-				/* allow scrolling if layout hits min-width/height */
-				overflow:		auto !important; /* override Layout default of 'hidden' */
-			}
-		.accordion { height: 100% }
-	</style>
-	<SCRIPT type="text/javascript">
-		$(document).ready(function () {
-			pageLayout = $('body').layout({
-			applyDefaultStyles: true,
-			spacing_open:0,
-			spacing_closed: 0,
-			slidable:  false,
-			togglerLength_closed:  0,
-			});
-			pageLayout.sizePane("north", 50);
-		});
-		$(function() {
-			$( "#accordion" ).accordion({fillSpace: true});
-			$( "button", "#accordion" ).button({icons:{secondary:"ui-icon-carat-1-e"}});
-			$( "#logout", ".routeModBtns").button({icons:{primary:"ui-icon-power"}});
-			$( "#rename", ".routeModBtns").button({icons:{primary:"ui-icon-arrowrefresh-1-w"}});
-			$( "#edit", ".routeModBtns").button({icons:{primary:"ui-icon-scissors"}});
-			$( "#save", ".routeModBtns").button({icons:{primary:"ui-icon-tag"}});
-			$( "#delete", ".routeModBtns").button({icons:{primary:"ui-icon-closethick"}});
-			$( "#buildFS", ".routeModBtns").button({icons:{primary:"ui-icon-shuffle"}});
-			$( "#new", ".routeModBtns").button({icons:{primary:"ui-icon-star"}});
-			$( "button", ".routeModBtns" ).button();
-		});
-	</SCRIPT>
 	<!--Header Navigation-->
 	<DIV class="ui-layout-pane ui-layout-north" style="height:50px;">
-	<%= image_tag("DigiTravel_Logo.png", :style => "float:left;margin-left:20px;margin-top:2px;") %>
+	<%= image_tag("dt_micro.png", :style => "float:left;margin-left:20px;margin-top:2px;") %>
 		<div class="routeModBtns" style="margin-left:120px; margin-top:10px;">
 			<h2 style="display:inline">Route Management: </h2>
 			<button id="new">New</button>
@@ -46,7 +15,7 @@
 	
 	<!--Center Content-->
 	<DIV class="ui-layout-pane ui-layout-center">
-		<iframe id="map_frame" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="googlemap.html"></iframe>
+		<iframe id="map_frame" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://digitravel.herokuapp.com/googlemap.html"></iframe>
 	</DIV>
 	
 	<!--Left Navigation-->

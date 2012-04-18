@@ -1,33 +1,6 @@
-	<style>
-		html {
-				/* allow scrolling if layout hits min-width/height */
-				overflow:		auto !important; /* override Layout default of 'hidden' */
-			}
-		.accordion { height: 100% }
-	</style>
-	<SCRIPT type="text/javascript">
-		$(document).ready(function () {
-			pageLayout = $('body').layout({
-			applyDefaultStyles: true,
-			spacing_open:0,
-			spacing_closed: 0,
-			slidable:  false,
-			togglerLength_closed:  0,
-			});
-			pageLayout.sizePane("north", 50);
-			pageLayout.sizePane("west", 250);
-		});
-		$(function() {
-			$( "#accordion" ).accordion({fillSpace: true});
-			$( "button", ".routeModBtns" ).button();
-			$( "button", ".userList" ).button({icons:{secondary:"ui-icon-carat-1-e"}});
-			$( "#logout", ".routeModBtns").button({icons:{primary:"ui-icon-power"}});
-			$( "input:submit", "#acctBtns" ).button();
-		});
-	</SCRIPT>
 	<!--Header Navigation-->
 	<DIV class="ui-layout-pane ui-layout-north" style="height:50px;">
-		<%= image_tag("DigiTravel_Logo.png", :style => "float:left;margin-left:20px;margin-top:2px;") %>
+		<%= image_tag("dt_micro.png", :style => "float:left;margin-left:20px;margin-top:2px;") %>
 		<div class="routeModBtns" style="margin-left:120px; margin-top:10px;">
 			<h2 style="display:inline">DigiTravel Administration</h2>
 			<button id="logout" style="float:right;margin-right:20px;">Log Out</button>

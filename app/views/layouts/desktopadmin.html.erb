@@ -24,18 +24,14 @@
 			togglerLength_closed:  0,
 			});
 			pageLayout.sizePane("north", 50);
+			pageLayout.sizePane("west", 250);
 		});
 		$(function() {
 			$( "#accordion" ).accordion({fillSpace: true});
-			$( "button", "#accordion" ).button({icons:{secondary:"ui-icon-carat-1-e"}});
-			$( "#logout", ".routeModBtns").button({icons:{primary:"ui-icon-power"}});
-			$( "#rename", ".routeModBtns").button({icons:{primary:"ui-icon-arrowrefresh-1-w"}});
-			$( "#edit", ".routeModBtns").button({icons:{primary:"ui-icon-scissors"}});
-			$( "#save", ".routeModBtns").button({icons:{primary:"ui-icon-tag"}});
-			$( "#delete", ".routeModBtns").button({icons:{primary:"ui-icon-closethick"}});
-			$( "#buildFS", ".routeModBtns").button({icons:{primary:"ui-icon-shuffle"}});
-			$( "#new", ".routeModBtns").button({icons:{primary:"ui-icon-star"}});
 			$( "button", ".routeModBtns" ).button();
+			$( "button", ".userList" ).button({icons:{secondary:"ui-icon-carat-1-e"}});
+			$( "#logout", ".routeModBtns").button({icons:{primary:"ui-icon-power"}});
+			$( "input:submit", "#acctBtns" ).button();
 		});
 	</SCRIPT>
 </head>
