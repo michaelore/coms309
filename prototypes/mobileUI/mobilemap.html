@@ -9,7 +9,7 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.mobile-1.0.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile.simpledialog2.min.js"></script>
-		<script src="js/jquery.timer.js"></script>
+		<script src="js/date.format.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				// $('#createlocation').remove();
@@ -43,11 +43,6 @@
 			function createPointCall(){
 				window.frames[0].createPoint();
 			}
-		</script>
-		<script type="text/javascript">
-			$(function() {
-				$('#clock1').stopwatch();
-			});
 		</script>
     </head>
     <body>
@@ -114,7 +109,9 @@
 						Distance Remaining
                     </div>
                     <div class="ui-block-a">
-						Time Elapsed: <div id="clock1" style="float:right;"></div> 
+						Time Elapsed: <div id="countdown" style="float:right;margin-right:10px;">00:00:00</div> 
+						<input type="button" class="start" value="Start" onclick="startTimer()"/>
+						<input type="button" class="stop" value="Stop" onclick="alert('elapsedtime: ' + stopTimer())"/>
                     </div>
                     <div class="ui-block-b">
 						Time Remaining
@@ -127,5 +124,54 @@
                 </h5>
             </div>
         </div>
+		<script type="text/javascript">
+            //Javascript mobile timer
+			var startTime;
+			//make the timeout for running of currentTime its own variable so it can be enabled/disabled
+			var timeout;
+			function currentTime()
+			{
+				var currentTime = new Date();
+				var diff=currentTime-startTime;
+				var milliseconds=Math.floor(diff % 1000);   
+					diff=diff/1000;            
+				var seconds=Math.floor(diff % 60);
+					diff=diff/60;
+				var minutes=Math.floor(diff % 60);
+					diff=diff/60;
+				var hours=Math.floor(diff % 24);
+					diff=diff/24;
+				//var days=Math.floor(diff);
+				// We'll build a display string instead of doing document.writeln
+			   //var outStr = days + ' days, ' + hours+ ' hours, ' + minutes;
+				 //  outStr+= ' minutes, ' + seconds + ' seconds elapsed'; 
+				 
+				 var elapsedDate = new Date();
+				 elapsedDate.setHours(hours);
+				 elapsedDate.setMinutes(minutes);
+				 elapsedDate.setSeconds(seconds);
+				 dateFormat.masks.TF = 'HH:MM:ss';
+				 var outStr = elapsedDate.format("TF");
+				 //var outStr = elapsedDate.getHours()+':'+elapsedDate.getMinutes()+':'+elapsedDate.getSeconds();
+				 //var outStr = hours + ':' + minutes + ':' + seconds;
+
+			   // Insert our display string into the countdown span.
+			   document.getElementById('countdown').innerHTML=outStr;
+			   timeout = setTimeout('currentTime()', 1000);
+			}
+		   function startTimer()
+		   {
+				// call this function again in exactly 1 second.   
+				startTime = new Date();
+				currentTime();
+		   }
+		   function stopTimer()
+		   {
+				clearTimeout(timeout);
+				var elapsedTime = document.getElementById('countdown').innerHTML;
+				document.getElementById('countdown').innerHTML = '00:00:00';
+				return elapsedTime;
+			}
+        </script>
     </body>
 </html>
