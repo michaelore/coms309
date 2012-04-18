@@ -3,33 +3,33 @@ class ContentController < ApplicationController
 
   def home
     if isMobile
-      render :file => 'content/mobilehome'
+      render :file => 'content/mobilehome', :layout => 'mobile'
     else
-      render :file => 'content/home'
+      render :file => 'content/home', :layout => 'desktop'
     end
   end
 
   def search
     if isMobile
-      render :file => 'content/mobilesearch'
+      render :file => 'content/mobilesearch', :layout => 'mobile'
     else
-      render :file => 'content/search'
+      render :file => 'content/search', :layout => 'desktop'
     end
   end
 
   def history
     if isMobile
-      render :file => 'content/mobileshistory'
+      render :file => 'content/mobileshistory', :layout => 'mobile'
     else
-      render :file => 'content/history'
+      render :file => 'content/history', :layout => 'desktop'
     end
   end
 
   def map
     if isMobile
-      render :file => 'content/mobilemap'
+      render :file => 'content/mobilemap', :layout => 'mobile'
     else
-      render :file => 'content/map'
+      render :file => 'content/map', :layout => 'desktop'
     end
   end
 end
