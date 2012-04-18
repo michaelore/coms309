@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
 
 	def new
 		if isMobile
-			render :file => 'sessions/mobilenew'
+			render :file => 'sessions/mobilelogin'
 		else
-			render :file => 'sessions/new'
+			render :file => 'sessions/login'
 		end
 	end
 	

@@ -1,6 +1,6 @@
 Coms309::Application.routes.draw do
 
-  get "sessions/create"
+  post "sessions/create"
 
   get "sessions/delete"
 
