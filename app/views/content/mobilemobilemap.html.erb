@@ -1,0 +1,165 @@
+		<%= stylesheet_link_tag "mobile/jquery.mobile.simpledialog.min.css" %>
+		<%= javascript_include_tag "mobile/jquery.mobile.simpledialog2.min.js" %>
+		<%= javascript_include_tag "mobile/date.format.js" %>
+		<script type="text/javascript">
+			$(function() {
+				// $('#createlocation').remove();
+			});
+			$(document).delegate('#searchdialog', 'click', function() {
+			  $('<div>').simpledialog2({
+				mode: 'button',
+				headerText: 'Route Search',
+				headerClose: true,
+				buttonPrompt: 'Enter your search:',
+				buttonInput: true,
+				buttons : {
+				  'OK': {
+					click: function () { 
+					  alert($.mobile.sdLastInput);
+					}
+				  },
+				}
+			  })
+			});
+		</script>
+		<script type="text/javascript">
+			function createLocationCall() {
+				window.frames[0].createLocation();
+			}
+			
+			function makeRouteCall(){
+				window.frames[0].createRoute();
+			}
+			
+			function createPointCall(){
+				window.frames[0].createPoint();
+			}
+		</script>
+        <div data-role="page" data-theme="b" id="page10">
+            <div data-theme="b" data-role="header" data-position="inline">
+				<a href="home.html" data-icon="home" data-theme="c">Home</a>
+                <h1>
+                    Mobile Map
+                </h1>
+            </div>
+            <div data-role="content">
+                <div data-role="navbar" data-iconpos="top" id="navbar">
+                    <ul>
+                        <li>
+                            <a href="#page1" id="createlocation" data-theme="" data-icon="plus" onClick="createPointCall()">
+                                Create Point
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page1" id="zoomcurlocation" data-theme="" data-icon="grid">
+                                Find Me
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page1" id="searchdialog" data-theme="" data-icon="search">
+                                Search Routes
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- End navbar -->
+				<div data-role="navbar" data-iconpos="top" id="navbar2">
+                    <ul>
+                        <li>
+                            <a href="#page1" id="createroute" data-theme="" data-icon="plus" onClick="createLocationCall()">
+                                Create Route
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page1" id="addwaypoint" data-theme="" data-icon="radio-on">
+                                Add Waypoint
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page1" id="endroute" data-theme="" data-icon="delete">
+                                End Route
+                            </a>
+                        </li>
+                    </ul>
+				</div><!-- End navbar2 -->
+                <div id="map_container" style="width:100%; height:100%;">
+					<iframe id="map_frame" width="90%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="googlemap.html"></iframe>
+                </div>			
+                <a href="#page1" data-role="button" data-theme="b" data-icon="arrow-u" data-inline="true">Like</a>
+                <a href="#page1" data-role="button" data-theme="c" data-icon="arrow-d" data-inline="true">Dislike</a>
+				<a href="#page1" data-role="button" data-theme="b" data-icon="star" data-inline="true">Favorite</a>
+				<h4>
+                    Route Statistics:
+                </h4>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+						Distance
+                    </div>
+                    <div class="ui-block-b">
+						Distance Remaining
+                    </div>
+                    <div class="ui-block-a">
+						Time Elapsed: <div id="countdown" style="float:right;margin-right:10px;">00:00:00</div> 
+						<input type="button" class="start" value="Start" onclick="startTimer()"/>
+						<input type="button" class="stop" value="Stop" onclick="alert('elapsedtime: ' + stopTimer())"/>
+                    </div>
+                    <div class="ui-block-b">
+						Time Remaining
+                    </div>
+                </div>
+            </div>
+            <div data-theme="b" data-role="footer">
+                <h5>
+                    &copy; 2012 CS309 Team F2. All Rights Reserved.
+                </h5>
+            </div>
+        </div>
+		<script type="text/javascript">
+            //Javascript mobile timer
+			var startTime;
+			var elapsedDate;
+			//make the timeout for running of currentTime its own variable so it can be enabled/disabled
+			var timeout;
+			function currentTime()
+			{
+				var currentTime = new Date();
+				var diff=currentTime-startTime;
+				var milliseconds=Math.floor(diff % 1000);   
+					diff=diff/1000;            
+				var seconds=Math.floor(diff % 60);
+					diff=diff/60;
+				var minutes=Math.floor(diff % 60);
+					diff=diff/60;
+				var hours=Math.floor(diff % 24);
+					diff=diff/24;
+				//var days=Math.floor(diff);
+				// We'll build a display string instead of doing document.writeln
+			   //var outStr = days + ' days, ' + hours+ ' hours, ' + minutes;
+				 //  outStr+= ' minutes, ' + seconds + ' seconds elapsed'; 
+				 
+				 elapsedDate = new Date();
+				 elapsedDate.setHours(hours);
+				 elapsedDate.setMinutes(minutes);
+				 elapsedDate.setSeconds(seconds);
+				 dateFormat.masks.TF = 'HH:MM:ss';
+				 var outStr = elapsedDate.format("TF");
+				 //var outStr = elapsedDate.getHours()+':'+elapsedDate.getMinutes()+':'+elapsedDate.getSeconds();
+				 //var outStr = hours + ':' + minutes + ':' + seconds;
+
+			   // Insert our display string into the countdown span.
+			   document.getElementById('countdown').innerHTML=outStr;
+			   timeout = setTimeout('currentTime()', 1000);
+			}
+		   function startTimer()
+		   {
+				// call this function again in exactly 1 second.   
+				startTime = new Date();
+				currentTime();
+		   }
+		   function stopTimer()
+		   {
+				clearTimeout(timeout);
+				var elapsedTime = document.getElementById('countdown').innerHTML;
+				document.getElementById('countdown').innerHTML = '00:00:00';
+				return elapsedTime;
+			}
+        </script>
