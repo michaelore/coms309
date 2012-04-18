@@ -106,7 +106,7 @@ class Agent
 		when /ipad/i				; 'iPad'
 		when /linux/i				; 'Linux'
 		when /os x (\d+)[._](\d+)/i	; 'OS X #{$1}.#{$2}'
-		when /blackBerry/i			; 'BalckBerry'
+		when /blackBerry/i			; 'BlackBerry'
 		when /iphone/i				; 'iPhone'
 		else						; 'Unknown'
 		end
@@ -119,7 +119,7 @@ class Agent
 	end
 	
 	def os_s
-		if(os == 'iPad' || os == 'BalckBerry' || os == 'iPhone' || os == 'Android')
+		if(os == 'iPad' || os == 'BlackBerry' || os == 'iPhone' || os == 'Android')
 			return true
 		else
 			return false
