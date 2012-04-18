@@ -5,7 +5,7 @@ class ContentController < ApplicationController
     if isMobile
       render :file => 'content/mobilehome', :layout => 'mobile'
     else
-      render :file => 'content/home', :layout => 'desktop'
+      render :file => 'content/desktopUser', :layout => 'desktop'
     end
   end
 
