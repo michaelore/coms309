@@ -5,9 +5,9 @@
 		<script src="javascripts/mobile/jquery.min.js"></script>
 		<script type="text/javascript">
 			function testGET(){
-				$.get("/routes/search.json", { start: "", ending: "cc" },
+				$.get("/routes/search", { start: "", ending: "cc" },
 			   function(data){
-				 alert("Data Loaded: " + JSON.stringify(data));
+				 alert("Data Loaded: " + data);//JSON.stringify(data));
 			   });
 			};
 		JSON.stringify = JSON.stringify || function (obj) {
