@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="arrow-u"onClick="postLocation(1.0,1.0,'joe',1.0)">
+                            <a href="#page1" data-theme="" data-icon="arrow-u"onClick="grabRouteCall()">
                                 Grab Route
                             </a>
                         </li>
@@ -116,7 +116,9 @@
 	function zoomLoc(){
 		window.frames[0].toLocation();
 	}
-	
+	function grabRouteCall(){
+		window.frames[0].grabRoute();
+	}
 	
     </script>
 	
