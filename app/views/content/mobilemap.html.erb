@@ -16,19 +16,6 @@
 			  })
 			});
 		</script>
-		<script type="text/javascript">
-			function createLocationCall() {
-				window.frames[0].createLocation();
-			}
-			
-			function makeRouteCall(){
-				window.frames[0].createRoute();
-			}
-			
-			function createPointCall(){
-				window.frames[0].createPoint();
-			}
-		</script>
         <div data-role="page" data-theme="b" id="page10">
             <div data-theme="b" data-role="header" data-position="inline">
 				<a href="/home/" data-icon="home" data-theme="c">Home</a>
@@ -50,7 +37,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" id="searchdialog" data-theme="" data-icon="search" onClick="grabRouteCall()">
+                            <a href="#page1" id="searchdialog" data-theme="" data-icon="search">
                                 Search Routes
                             </a>
                         </li>
@@ -69,7 +56,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" id="endroute" data-theme="" data-icon="delete">
+                            <a href="#page1" id="endroute" data-theme="" data-icon="delete" onClick="grabRouteCall()">>
                                 End Route
                             </a>
                         </li>
