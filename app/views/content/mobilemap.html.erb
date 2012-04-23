@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" id="searchdialog" data-theme="" data-icon="search">
+                            <a href="#page1" id="searchdialog" data-theme="" data-icon="search" onClick="grabRouteCall()">
                                 Search Routes
                             </a>
                         </li>
@@ -171,6 +171,10 @@
 	
 			function zoomLoc(){
 				window.frames[0].toLocation();
+			}
+			
+			function grabRouteCall(){
+				window.frames[0].grabRoute();
 			}
 </script>
 <script type="text/javascript">
