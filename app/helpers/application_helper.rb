@@ -3,7 +3,7 @@ require 'RouteRanking.rb'
 
 module ApplicationHelper
 	def isMobile
-		return Agent.new(request.env['HTTP_USER_AGENT']).os_s
+		return true #return Agent.new(request.env['HTTP_USER_AGENT']).os_s
 	end
 
 	def sortRoutes(routes)
