@@ -5,13 +5,13 @@
                 </h3>
             </div>
             <div data-role="content">
-				<form name="login" action="#index.html" method="post">
+				<form name="login" action="/session/create" method="post">
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup">
 							<label for="textinput1">
 								Email Address
 							</label>
-							<input id="textinput1" placeholder="" value="" type="email" />
+							<input name="user[email]" id="textinput1" placeholder="" value="" type="email" />
 						</fieldset>
 					</div>
 					<div data-role="fieldcontain">
@@ -19,11 +19,11 @@
 							<label for="textinput2">
 								Password
 							</label>
-							<input id="textinput2" placeholder="" value="" type="password" />
+							<input name="user[name]" id="textinput2" placeholder="" value="" type="password" />
 						</fieldset>
 					</div>
-					<input type="submit" name="submit" value="login" data-theme="b" data-icon="forward" data-iconpos="left"/>
-					<input type="submit" name="submit" value="register" data-theme="e" data-icon="arrow-u" data-iconpos="left"/>
+					<input type="submit" name="commit" value="login" data-theme="b" data-icon="forward" data-iconpos="left"/>
+					<input type="submit" name="commit" value="register" data-theme="e" data-icon="arrow-u" data-iconpos="left"/>
 				</form>
             </div>
             <div data-theme="b" data-role="footer">
