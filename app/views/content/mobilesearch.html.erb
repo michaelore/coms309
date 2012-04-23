@@ -37,3 +37,18 @@
                 </h5>
             </div>
         </div>
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			var $from = "";
+			var $to = "";
+			if(typeof getUrlVars()["from"] != 'undefined')
+			{
+				$from = getUrlVars()["from"];
+			}
+			if(typeof getUrlVars()["to"] != 'undefined')
+			{
+				$to = getUrlVars()["to"];
+			}
+			searchByKeyword($from, $to);
+		});	
+		</script>
