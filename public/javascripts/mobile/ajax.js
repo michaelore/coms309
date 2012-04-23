@@ -96,23 +96,17 @@ function pullRoute(id){
 	
 }
 
-function searchByKeyWord(keyword){
-
-
-
-}
-
-
 function searchByCorrdinates(){
 
 
 
 }
 */
-function testGET(s, e){
+function searchByKeyword(s, e){
 	$.get("/routes/search", { start: s, ending: e },
    function(data){
 	 //alert("Data Loaded: " + data);//JSON.stringify(data));
+	 $("ul").empty();
 	 $("#content ul").append(data);
 	 $('ul').listview('refresh');
    });
