@@ -1,0 +1,23 @@
+What do we need to have a finished project.
+-register
+-log in
+-main menu
+-create route
+	-
+	-
+	-
+-histoty to use old route
+	-
+	-
+-like /dislike
+-favorite
+	-
+	-
+-search
+
+
+(exclude)
+-laptop
+-register
+-login
+-user
