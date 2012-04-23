@@ -1,8 +1,6 @@
 Coms309::Application.routes.draw do
 
-  post "sessions/create"
-
-  get "sessions/delete"
+  resources :sessions
 
   get "routes/search"
 
