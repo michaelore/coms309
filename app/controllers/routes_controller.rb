@@ -65,7 +65,7 @@ class RoutesController < ApplicationController
                            INNER JOIN locations AS e ON routes.ending_id = e.id').where('s.name ~* ? AND e.name ~* ?', params[:start], params[:ending])
     @routes = Route.find(sortRoutes(@routes))
     respond_to do |format|
-      format.html
+      format.html { render :partial => "search" }
       format.json { render :json => @routes.map {|r| r.deep} }
     end
   end
