@@ -33,6 +33,16 @@ class Route < ActiveRecord::Base
 		return count
 	end
 
+	def coordinates
+		start = Location.find(self.start_id).
+		ending = Location.find(self.ending_id)
+		vertices = self.vertices.map {|id| Coordinate.find(id)}
+		coordinates = [{:latitude => start.avgLat, :longitude => start.avgLon}]
+		vertices.each { |vert| coordinates.push({:latitude => vert.latitude, :longitude => vert.longitude}) }
+		coordinates.push({:latitude => ending.avgLat, :longitude => ending.avgLon})
+		return coordinates
+	end
+
 	def deep
 		start = Location.find(self.start_id)
 		ending = Location.find(self.ending_id)

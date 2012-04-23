@@ -69,4 +69,11 @@ class RoutesController < ApplicationController
       format.json { render :json => @routes.map {|r| r.deep} }
     end
   end
+
+  def coordinates
+    @route = Route.find(params[:id])
+    respond_to do |format|
+      format.json { render :json => @route.coordinates }
+    end
+  end
 end
