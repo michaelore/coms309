@@ -34,7 +34,7 @@ class Route < ActiveRecord::Base
 	end
 
 	def coordinates
-		start = Location.find(self.start_id).
+		start = Location.find(self.start_id)
 		ending = Location.find(self.ending_id)
 		vertices = self.vertices.map {|id| Coordinate.find(id)}
 		coordinates = [{:latitude => start.avgLat, :longitude => start.avgLon}]
