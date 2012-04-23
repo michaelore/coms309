@@ -179,3 +179,19 @@
 				window.frames[0].toLocation();
 			}
 </script>
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			var $routeID = "";
+			if(typeof getUrlVars()["id"] != 'undefined')
+			{
+				$routeID = getUrlVars()["id"];
+			}
+			if ($routeID == "")
+			{ // do nothing 
+			}
+			else
+			{
+				alert("Route ID Passed: " + routeID);
+			}
+		});	
+</script>
