@@ -6,4 +6,5 @@ TO DO
 -like and dislike
 -favorites
 -search
--
+-poster
+-paper
