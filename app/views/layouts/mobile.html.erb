@@ -7,15 +7,17 @@
   <%= javascript_include_tag "mobile/jquery.min.js" %>
   <%= javascript_include_tag "mobile/jquery.mobile-1.0.1.min.js" %>
   <%= javascript_include_tag "mobile/ajax.js" %>
-  <script type=text/javascript>
-	$(document).bind("mobileinit", function(){
-            $.extend(  $.mobile , { ajaxLinksEnabled : false });
-      });
-  </script>
 </head>
 <body>
 
 <%= yield %>
 
+<script type="text/javascript">
+	$('a').live('click', function() {
+		var $this = $(this);
+		if ( !$this.attr('rel') || $this.attr('rel') != 'external' )
+		$(document.getElementById( $this.attr('href') )).remove();
+	});
+</script>
 </body>
 </html>
