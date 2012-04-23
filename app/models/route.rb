@@ -52,7 +52,7 @@ class Route < ActiveRecord::Base
 		ratings.each do |r|
 			if r.like == 1
 				likes += 1
-			elsif r.lik == -1
+			elsif r.like == -1
 				dislikes += 1
 			end
 		end
