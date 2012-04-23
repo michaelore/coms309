@@ -21,6 +21,18 @@ class Route < ActiveRecord::Base
 		return sum
 	end
 
+	def likes
+		count = 0
+		ratings.each {|r| count += (r.like == 1 ? 1 : 0)}
+		return count
+	end
+
+	def dislikes
+		count = 0
+		ratings.each {|r| count += (r.like == -1 ? 1 : 0)}
+		return count
+	end
+
 	def deep
 		start = Location.find(self.start_id)
 		ending = Location.find(self.ending_id)

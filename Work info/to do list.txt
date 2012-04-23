@@ -1,0 +1,9 @@
+
+TO DO
+-regerstartion
+-**Ajax requests**
+-history loaded then cause used
+-like and dislike
+-favorites
+-search
+-

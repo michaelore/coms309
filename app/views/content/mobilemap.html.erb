@@ -46,12 +46,12 @@
                 <div data-role="navbar" data-iconpos="top" id="navbar">
                     <ul>
                         <li>
-                            <a href="#page1" id="createlocation" data-theme="" data-icon="plus" onClick="createPointCall()">
+                            <a href="#page1" id="createlocation" data-theme="" data-icon="plus" onClick="createLocationCall()">
                                 Create Point
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" id="zoomcurlocation" data-theme="" data-icon="grid">
+                            <a href="#page1" id="zoomcurlocation" data-theme="" data-icon="grid" onClick="zoomLoc()">
                                 Find Me
                             </a>
                         </li>
@@ -65,12 +65,12 @@
 				<div data-role="navbar" data-iconpos="top" id="navbar2">
                     <ul>
                         <li>
-                            <a href="#page1" id="createroute" data-theme="" data-icon="plus" onClick="createLocationCall()">
+                            <a href="#page1" id="createroute" data-theme="" data-icon="plus" onClick="makeRouteCall()">
                                 Create Route
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" id="addwaypoint" data-theme="" data-icon="radio-on">
+                            <a href="#page1" id="addwaypoint" data-theme="" data-icon="radio-on" onClick="createPointCall()">
                                 Add Waypoint
                             </a>
                         </li>
@@ -162,4 +162,26 @@
 				document.getElementById('countdown').innerHTML = '00:00:00';
 				return elapsedTime;
 			}
+			
+			function createLocationCall() {
+				window.frames[0].createLocation();
+			}
+	
+			function makeRouteCall(){
+				window.frames[0].createRoute();
+			}
+	
+			function createPointCall(){
+				window.frames[0].createPoint();
+			}
+	
+			function zoomLoc(){
+				window.frames[0].toLocation();
+			}
+			
+			
+
+			
+			
+			
         </script>
