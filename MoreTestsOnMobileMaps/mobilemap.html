@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="arrow-u"onClick="zoomLoc()">
+                            <a href="#page1" data-theme="" data-icon="arrow-u"onClick="postLocation(1.0,1.0,'joe',1.0)">
                                 Grab Route
                             </a>
                         </li>
@@ -86,6 +86,20 @@
 	
 	<script type="text/javascript">
       
+	function postLocation(lat, lng, name, acu){
+	$.ajax({
+        type: "POST",
+        url: 'digitravel.heroku.com/locations',
+        data: { _method:'POST', page : {Latitude : lat, Longitude: lng, Name: name, Accuracy: acu} },
+        dataType: 'json',
+        success: function(msg) {
+			alert( "Data Saved: " + msg );
+        }
+		
+	});
+	
+}
+	
 	
 	function createLocationCall() {
 		window.frames[0].createLocation();
