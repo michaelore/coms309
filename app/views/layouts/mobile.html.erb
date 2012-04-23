@@ -13,10 +13,8 @@
 <%= yield %>
 
 <script type="text/javascript">
-	$('a').live('click', function() {
-		var $this = $(this);
-		if ( !$this.attr('rel') || $this.attr('rel') != 'external' )
-		$(document.getElementById( $this.attr('href') )).remove();
+	$(document).ready(function() {
+		$('a').attr('rel', 'external')
 	});
 </script>
 </body>
