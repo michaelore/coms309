@@ -49,7 +49,7 @@ class Route < ActiveRecord::Base
 		if (rate && rate.favorite == 1)
 			faved = 1
 		end
-		return {"start" => start.name, "ending" => ending.name, "likes" => likes, "dislikes" => dislikes, "favorite" => faved}
+		return {"start" => start.name, "ending" => ending.name, "likes" => likes, "dislikes" => dislikes, "favorite" => faved, "distance" => distance}
 	end
 
 	def deep
