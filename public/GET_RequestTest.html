@@ -5,7 +5,7 @@
 		<script src="javascripts/mobile/jquery.min.js"></script>
 		<script type="text/javascript">
 			function testGET(){
-				$.get("http://digitravel.herokuapp.com/routes/search.json", { start: "", ending: "cc" },
+				$.get("/routes/search.json", { start: "", ending: "cc" },
 			   function(data){
 				 alert("Data Loaded: " + data);
 			   });
