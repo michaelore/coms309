@@ -109,3 +109,11 @@ function searchByCorrdinates(){
 
 }
 
+function testGET(){
+	$.get("/routes/search", { start: "", ending: "cc" },
+   function(data){
+	 //alert("Data Loaded: " + data);//JSON.stringify(data));
+	 $("#content ul").append(data);
+	 $('ul').listview('refresh');
+   });
+};
