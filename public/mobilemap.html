@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" data-theme="" data-icon="arrow-u">
+                            <a href="#page1" data-theme="" data-icon="arrow-u" onClick="grabRouteCall()">
                                 Grab Route
                             </a>
                         </li>
@@ -89,6 +89,10 @@
 	
 	function createLocationCall() {
 		window.frames[0].createLocation();
+	}
+	
+	function grabRouteCall(){
+		window.frames[0].grabRoute();
 	}
     </script>
 	

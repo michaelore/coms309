@@ -236,6 +236,44 @@ function remainingTime(){
 This function will grab a route from the database and set it up on the map for the user.
 */
 function grabRoute(){
+	locations = null;
+	
+	var JsonObject = [{"latitude":42.02335,"longitude":-93.625621},{"latitude":50.0,"longitude":-90.0},{"latitude":50.0,"longitude":-91.0},{"latitude":42.025041,"longitude":-93.6511819}];
+	
+	parsjson(JsonObj);
+	
+	var marker1;
+	var marker2;
+	var mapOptions = {
+		zoom: myZoom,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		center: locations[0]
+	};
+	map = new google.maps.Map(document.getElementById('map_canvas'),
+		mapOptions);
+
+	marker1 = new google.maps.Marker({
+		map:map,
+		draggable:true,
+		animation: google.maps.Animation.DROP,
+		position: locations[0]
+	});
+	marker2 = new google.maps.Marker({
+		map:map,
+		draggable:true,
+		animation: google.maps.Animation.DROP,
+		position: locations[locations.length]
+	});
+
+locations = [    new google.maps.LatLng(curLat, curLng)];
+	
+	var route = new google.maps.Polyline({
+    path: locations,
+    strokeColor: "#FF0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+  route.setMap(map);
 	
 }
 
