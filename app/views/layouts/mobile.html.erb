@@ -9,9 +9,8 @@
   <%= javascript_include_tag "mobile/ajax.js" %>
   <script type=text/javascript>
 	$(document).bind("mobileinit", function(){
-		$.mobile.defaultPageTransition = 'none';
-		$.mobile.ajaxLinksEnabled(false);
-	});
+            $.extend(  $.mobile , { ajaxLinksEnabled : false });
+      });
   </script>
 </head>
 <body>
