@@ -45,7 +45,7 @@ class Route < ActiveRecord::Base
 
 	def info(user_id)
 		faved = 0
-		rate = Rating.find_by_user_id_and_route_id(user_id, id)
+		rate = Rating.find_by_user_id_and_route_id(user_id ? user_id : 0, id)
 		if (rate && rate.favorite == 1)
 			faved = 1
 		end
