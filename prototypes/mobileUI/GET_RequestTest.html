@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DigiTravel</title>
+		<script src="javascripts/mobile/jquery.min.js"></script>
+		<script type="text/javascript">
+			function testGET(){
+				$.get("http://digitravel.herokuapp.com/routes/search.json", { start: "", ending: "cc" },
+			   function(data){
+				 alert("Data Loaded: " + data);
+			   });
+			};
+		</script>
+    </head>
+    <body>
+		<input type="button" class="start" value="Test GET" onclick="testGET()"/>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>
