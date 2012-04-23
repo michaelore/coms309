@@ -33,6 +33,25 @@ class Route < ActiveRecord::Base
 		return count
 	end
 
+	def coordinates
+		start = Location.find(self.start_id)
+		ending = Location.find(self.ending_id)
+		vertices = self.vertices.map {|id| Coordinate.find(id)}
+		coordinates = [{:latitude => start.avgLat, :longitude => start.avgLon}]
+		vertices.each { |vert| coordinates.push({:latitude => vert.latitude, :longitude => vert.longitude}) }
+		coordinates.push({:latitude => ending.avgLat, :longitude => ending.avgLon})
+		return coordinates
+	end
+
+	def info
+		faved = 0
+		rate = Rating.find_by_user_id_and_route_id(session[:user_id], id)
+		if (rate && rate.favorite == 1)
+			faved = 1
+		end
+		return {"start" => start.name, "ending" => ending.name, "likes" => likes, "dislikes" => dislikes, "favorite" => faved}
+	end
+
 	def deep
 		start = Location.find(self.start_id)
 		ending = Location.find(self.ending_id)
@@ -42,7 +61,7 @@ class Route < ActiveRecord::Base
 		ratings.each do |r|
 			if r.like == 1
 				likes += 1
-			elsif r.lik == -1
+			elsif r.like == -1
 				dislikes += 1
 			end
 		end
