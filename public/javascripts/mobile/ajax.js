@@ -25,7 +25,7 @@ function fillMyContacts(){
     	}
 	);
 }
-
+/*
 function postLocation(lat, lng, name, acu){
 	$.ajax({
         type: "POST",
@@ -108,7 +108,7 @@ function searchByCorrdinates(){
 
 
 }
-
+*/
 function testGET(){
 	$.get("/routes/search", { start: "", ending: "cc" },
    function(data){
