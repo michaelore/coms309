@@ -43,9 +43,9 @@ class Route < ActiveRecord::Base
 		return coordinates
 	end
 
-	def info
+	def info(user_id)
 		faved = 0
-		rate = Rating.find_by_user_id_and_route_id(session[:user_id], id)
+		rate = Rating.find_by_user_id_and_route_id(user_id, id)
 		if (rate && rate.favorite == 1)
 			faved = 1
 		end
