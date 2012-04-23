@@ -11,7 +11,7 @@
                         <label for="textinput7">
                             From
                         </label>
-                        <input id="textinput7" placeholder="" value="" type="text" />
+                        <input id="from" placeholder="" value="" type="text" />
                     </fieldset>
                 </div>
                 <div data-role="fieldcontain">
@@ -19,10 +19,10 @@
                         <label for="textinput9">
                             To
                         </label>
-                        <input id="textinput9" placeholder="" value="" type="text" />
+                        <input id="to" placeholder="" value="" type="text" />
                     </fieldset>
                 </div>
-                <a data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="search" data-iconpos="left" onclick="testGET()">
+                <a data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="search" data-iconpos="left" onclick="testGET($('#from').val(),$('#to').val())">
                     Search
                 </a>
                 <ul data-role="listview" data-divider-theme="b" data-inset="true">

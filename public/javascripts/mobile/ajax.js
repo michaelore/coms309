@@ -109,8 +109,8 @@ function searchByCorrdinates(){
 
 }
 */
-function testGET(){
-	$.get("/routes/search", { start: "", ending: "cc" },
+function testGET(s, e){
+	$.get("/routes/search", { start: s, ending: e },
    function(data){
 	 //alert("Data Loaded: " + data);//JSON.stringify(data));
 	 $("#content ul").append(data);
