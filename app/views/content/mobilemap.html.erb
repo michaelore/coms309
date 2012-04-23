@@ -181,6 +181,7 @@
 </script>
 <script type="text/javascript">
 		$('div').live('pagebeforeshow',function(event, ui){
+			alert("this ran");
 			//$.mobile.changePage(page, { changeHash: true });
 			var $routeID = "";
 			if(typeof getUrlVars()["id"] != 'undefined')
