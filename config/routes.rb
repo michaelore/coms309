@@ -8,7 +8,7 @@ Coms309::Application.routes.draw do
 
   resources :users
   resources :routes
-  match "/routes/coordinates/:id" => "routes#coordinates"
+  match "/routes/:id/coordinates/" => "routes#coordinates"
   resources :locations
   resources :coordinates
 
