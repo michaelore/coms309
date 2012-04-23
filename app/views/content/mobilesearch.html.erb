@@ -9,20 +9,20 @@
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="textinput7">
-                            From
+                            Start
                         </label>
-                        <input id="from" placeholder="" value="" type="text" />
+                        <input id="start" placeholder="" value="" type="text" />
                     </fieldset>
                 </div>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="textinput9">
-                            To
+                            End
                         </label>
-                        <input id="to" placeholder="" value="" type="text" />
+                        <input id="end" placeholder="" value="" type="text" />
                     </fieldset>
                 </div>
-                <a data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="search" data-iconpos="left" onclick="searchByKeyword($('#from').val(),$('#to').val())">
+                <a data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="search" data-iconpos="left" onclick="searchByKeyword($('#start').val(),$('#end').val())">
                     Search
                 </a>
                 <ul data-role="listview" data-divider-theme="b" data-inset="true">
@@ -39,16 +39,21 @@
         </div>
 		<script type="text/javascript">
 		jQuery(document).ready(function($) {
-			var $from = "";
-			var $to = "";
-			if(typeof getUrlVars()["from"] != 'undefined')
+			var $start = "";
+			var $end = "";
+			if(typeof getUrlVars()["start"] != 'undefined')
 			{
-				$from = getUrlVars()["from"];
+				$start = getUrlVars()["start"];
 			}
-			if(typeof getUrlVars()["to"] != 'undefined')
+			if(typeof getUrlVars()["end"] != 'undefined')
 			{
-				$to = getUrlVars()["to"];
+				$end = getUrlVars()["end"];
 			}
-			searchByKeyword($from, $to);
+			if ($start == "" && $end == "")
+			{ // do nothing }
+			else
+			{
+				searchByKeyword($start, $end);
+			}
 		});	
 		</script>
