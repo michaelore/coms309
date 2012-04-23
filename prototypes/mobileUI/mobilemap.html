@@ -11,23 +11,17 @@
 		<script type="text/javascript" src="js/jquery.mobile.simpledialog2.min.js"></script>
 		<script src="js/date.format.js"></script>
 		<script type="text/javascript">
-			$(function() {
-				// $('#createlocation').remove();
-			});
 			$(document).delegate('#searchdialog', 'click', function() {
 			  $('<div>').simpledialog2({
-				mode: 'button',
+				mode: 'blank',
 				headerText: 'Route Search',
 				headerClose: true,
-				buttonPrompt: 'Enter your search:',
-				buttonInput: true,
-				buttons : {
-				  'OK': {
-					click: function () { 
-					  alert($.mobile.sdLastInput);
-					}
-				  },
-				}
+				blankContent : 
+				'<div id="content" data-role="content"><label>Enter Your Search:</label><div data-role="fieldcontain"><fieldset data-role="controlgroup">' +
+				'<label for="textinput7">Start</label><input id="start" placeholder="" value="" type="text"/></fieldset></div>'+
+				'<div data-role="fieldcontain"><fieldset data-role="controlgroup"><label for="textinput9">End</label>'+
+				'<input id="end" placeholder="" value="" type="text" /></fieldset></div>'+
+				'<a data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="search" data-iconpos="left" onclick="location.href = "/search/?start=" + $("#start").val() + "&end=" + $("#end").val()">Search</a>'
 			  })
 			});
 		</script>
