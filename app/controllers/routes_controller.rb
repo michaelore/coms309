@@ -48,7 +48,7 @@ class RoutesController < ApplicationController
     @route = Route.find(params[:id])
     respond_to do |format|
       format.html
-      format.json { render :json => @route.deep }
+      format.json { render :json => @route.info }
     end
   end
 
