@@ -239,6 +239,14 @@ function grabRoute(){
 	
 }
 
+
+function parsjson(JsonObj){
+	for(var i=0; i < JsonObj.length;i++){
+		locations.push(new google.maps.LatLng(JsonObj[i].latitude, JsonObj[i].longitude));
+	}
+	
+}
+
     </script>
   </head>
   <body onload="initialize()">
