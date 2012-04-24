@@ -236,7 +236,7 @@ function remainingTime(){
 This function will grab a route from the database and set it up on the map for the user.
 */
 function grabRoute(JsonObj){
-	alert("GoogleMap.html: JSON OBJKECT " + JsonObj);
+	//alert("GoogleMap.html: JSON OBJKECT " + JsonObj);
 	myZoom = map.getZoom();
 	locations = [new google.maps.LatLng(JsonObj[0].latitude, JsonObj[0].longitude)];
 	parsjson(JsonObj);
@@ -271,7 +271,7 @@ function grabRoute(JsonObj){
 		animation: google.maps.Animation.DROP,
 		position: locations[locations.length-1]
 	});
-	alert("Google Map should be at the end of the route builder");
+	//alert("Google Map should be at the end of the route builder");
 }
 
 
