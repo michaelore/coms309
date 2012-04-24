@@ -33,7 +33,12 @@
                         </a>
                     </li>
                 </ul>
-				<a href="/sessions" data-method="delete" data-role="button" data-icon="alert">Log Out</a>
+				<form method="post" action="/sessions">
+					<div>
+						<input name="_method" value="delete" type="hidden" />
+						<input value="Logout" type="submit">
+					</div>
+				</form>
             </div>
             <div data-theme="b" data-role="footer">
                 <h5>
