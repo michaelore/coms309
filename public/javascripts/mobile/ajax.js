@@ -34,7 +34,7 @@ function postLocation(lat, lng, name){
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
-        }
+        },
 		error: function(msg) {
 			alert( "Error: " + msg );
         }
@@ -60,7 +60,7 @@ function postRoute(latlng, idstart, idend, time){
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
-        }
+        },
 		error: function(msg) {
 			alert( "Error: " + msg );
         }
