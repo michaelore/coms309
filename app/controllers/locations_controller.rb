@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   def create
-    @location = Location.new(:name => params[:post][:name])
+    @location = Location.new(:name => params[:location][:name])
     respond_to do |format|
       if @location.save
         coord = Coordinate.new({:latitude => params[:post][:latitude],

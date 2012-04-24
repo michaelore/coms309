@@ -1,7 +1,7 @@
 class RoutesController < ApplicationController
   include ApplicationHelper
   def create
-    @route = Route.new(params[:post])
+    @route = Route.new(params[:route])
     respond_to do |format|
       if @route.save
         format.html { redirect_to(@route, :notice => 'Route was successfully created.') }
@@ -75,5 +75,26 @@ class RoutesController < ApplicationController
     respond_to do |format|
       format.json { render :json => @route.coordinates }
     end
+  end
+
+  def like
+    rating = Rating.find_or_create_by_route_and_user(params[:id], session[:user_id])
+    rating.like = 1
+    rating.save
+    head :ok
+  end
+
+  def dislike
+    rating = Rating.find_or_create_by_route_and_user(params[:id], session[:user_id])
+    rating.like = -1
+    rating.save
+    head :ok
+  end
+
+  def favorite
+    rating = Rating.find_or_create_by_route_and_user(params[:id], session[:user_id])
+    rating.favorite = 1
+    rating.save
+    head :ok
   end
 end
