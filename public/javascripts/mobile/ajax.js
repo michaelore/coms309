@@ -89,19 +89,14 @@ function pullLocation(id){
 	
 }
 
-
-function pullRoute(id){
-	
-	
-	
-}
-
-function searchByCorrdinates(){
-
-
-
-}
 */
+function pullRouteCoordinates(id){
+	$.get("/routes/" + id + "/coordinates.json",
+   function(data){
+     alert("route id: " + id + "data: " + data);
+   }, "json");
+}
+
 function searchByKeyword(s, e){
 	$.get("/routes/search", { start: s, ending: e },
    function(data){
