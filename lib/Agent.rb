@@ -52,18 +52,30 @@ class Agent
 		string
 	end
 	
+	##
+	#inspect
 	
 	def inspect
 		"#Agent:#{name} version:#{version.inspect} engine:\"#{engine.to_s}:#{engine_version}\"os:#{os.to_s.inspect}>"
 	end
 	
+	##
+	#check the agent if the same as other agent
+	
 	def == other
 		string == other.string
 	end
 	
+	
+	##
+	#return engine version for user agent
+	
 	def self.engine_version_for_agent string
 		$1 if string = /#{engine_for_user_agent(string)}[\/ ]([\d\w\.\-]+)/i
 	end
+	
+	##
+	#return version for user agent
 	
 	def self.version_for_user_agent string
 		case name = name_for_user_agent(string)
@@ -73,6 +85,9 @@ class Agent
 		end
 	end
   
+	##
+	#return engine symble for user agent 
+	
 	def self.engine_for_user_agent string
 		case string
 		when /webkit/i		; :webkit
@@ -86,6 +101,9 @@ class Agent
 		end
 	end
 	
+	##
+	#return name for user agent
+	
 	def self.name_for_user_agent string
 		case string
 		when /konqueror/i            ; :Konqueror
@@ -97,6 +115,9 @@ class Agent
 		else                         ; :Unknown
 		end
 	end
+	
+	##
+	#return os for user agent
 	
 	def self.os_for_user_agent string
 		case string
@@ -114,9 +135,15 @@ class Agent
 	
 	@agents = []
 	
+	##
+	#map user agent os
+	
 	def self.map os, options = {}
 		@agents << [os, options]
 	end
+	
+	##
+	#chech wether the user agent is mobile or not
 	
 	def os_s
 		if(os == 'iPad' || os == 'BlackBerry' || os == 'iPhone' || os == 'Android')
