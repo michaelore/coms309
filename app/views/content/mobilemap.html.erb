@@ -170,7 +170,8 @@
 			}
 </script>
 <script type="text/javascript">
-		jQuery(document).ready(function($) {
+		//jQuery(document).ready(function($) {
+		$(window).bind("load", function() {
 			var $routeID = "";
 			if(typeof getUrlVars()["id"] != 'undefined')
 			{
