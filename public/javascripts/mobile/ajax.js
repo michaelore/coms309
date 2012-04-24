@@ -25,12 +25,12 @@ function fillMyContacts(){
     	}
 	);
 }
-/*
+
 function postLocation(lat, lng, name, acu){
 	$.ajax({
         type: "POST",
-        url: 'digitravel.heroku.com/locations',
-        data: { _method:'POST', page : {Latitude : lat, Longitude: lng, Name: name, Accuracy: acu} },
+        url: '/locations',
+        data: { _method:'POST', page : { "location[:latitude]": lat, "location[:longitude]": lng, "location[name]": name, "location[:accuracy]": acu} },
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
@@ -55,8 +55,8 @@ function postRoute(latlng, idstart, idend, acu, time){
 	
 	$.ajax({
         type: "POST",
-        url: '/admin/pages/1.json',
-        data: { _method:'POST', page : {Latitude : lat, Longitude: lng, Start Location: idstart, End Location: idend, Accuracy: acu, Time: time} },
+        url: '/routes',
+        data: { _method:'POST', page : {Latitude : lat, Longitude: lng, "route[start_id]": idstart, "route[ending_id]": idend, "route[time]": time} },
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
@@ -68,6 +68,7 @@ function postRoute(latlng, idstart, idend, acu, time){
 	
 }
 
+/*
 function like(){
 	
 }
