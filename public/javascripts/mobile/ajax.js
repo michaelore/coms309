@@ -91,10 +91,11 @@ function pullLocation(id){
 
 */
 function pullRouteCoordinates(id){
-	var $id = 1;
+	var $id = id;
 	$.get("/routes/" + $id + "/coordinates.json",
    function(data){
 	 alert("Data Loaded: " + JSON.stringify(data));
+	 return data;
    });
 }
 
