@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   has_many :ratees, :class_name => "Route", :through => :ratings, :source => :route
   has_many :usages
   has_many :affiliatees, :class_name => "Route", :through => :usages, :source => :route
+  validates :email, :presence => true, :uniqueness => true
+  validates :password, :presence => true
 end
