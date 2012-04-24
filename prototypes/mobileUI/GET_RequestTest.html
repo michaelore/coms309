@@ -30,10 +30,22 @@
 				return (arr ? "[" : "{") + String(json) + (arr ? "]" : "}");
 			}
 		};
+		function testPOST(todo){
+			//POST    /routes/3/like
+			//POST    /routes/3/dislike
+			//POST    /routes/3/favorite
+			var $id = 1;
+			post("/routes/" + $id + "/" + todo, function(data) {
+			  alert("Data Loaded: " + JSON.stringify(data));
+			});
+		}
 		</script>
     </head>
     <body>
 		<input type="button" class="start" value="Test GET" onclick="testGET()"/>
+		<input type="button" class="start" value="Test POST--Like" onclick="testPOST('like')"/>
+		<input type="button" class="start" value="Test POST--Dislike" onclick="testPOST('dislike')"/>
+		<input type="button" class="start" value="Test POST--Favorite" onclick="testPOST('favorite')"/>
         <script>
             //App custom javascript
         </script>
