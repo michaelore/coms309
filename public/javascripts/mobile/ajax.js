@@ -26,11 +26,11 @@ function fillMyContacts(){
 	);
 }
 
-function postLocation(lat, lng, name, acu){
+function postLocation(lat, lng, name){
 	$.ajax({
         type: "POST",
         url: '/locations',
-        data: { _method:'POST', page : { "location[:latitude]": lat, "location[:longitude]": lng, "location[name]": name, "location[:accuracy]": acu} },
+        data: { _method:'POST', page : { "location[latitude]": lat, "location[longitude]": lng, "location[name]": name} },
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
@@ -43,7 +43,7 @@ function postLocation(lat, lng, name, acu){
 
 
 
-function postRoute(latlng, idstart, idend, acu, time){
+function postRoute(latlng, idstart, idend, time){
 	
 	var lat;
 	var lng;
