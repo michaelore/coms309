@@ -90,6 +90,18 @@ function pullLocation(id){
 }
 
 */
+
+function pullRouteData(id){
+http://digitravel.herokuapp.com/routes/3.json
+{"start":"UDCC","ending":"Parks Library","likes":0,"dislikes":0,"favorite":0,"distance":434.3532741670897}
+	var $id = id;
+	$.get("/routes/" + $id + ".json",
+   function(data){
+	//magic shit
+		alert(data.start);
+   });
+}
+
 function pullRouteCoordinates(id){
 	var $id = id;
 	$.get("/routes/" + $id + "/coordinates.json",
