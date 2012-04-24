@@ -81,20 +81,20 @@ class RoutesController < ApplicationController
     rating = Rating.find_or_create_by_route_and_user(params[:id], session[:user_id])
     rating.like = 1
     rating.save
-    head :ok
+    render :json => Route.find(params[:id]).info
   end
 
   def dislike
     rating = Rating.find_or_create_by_route_and_user(params[:id], session[:user_id])
     rating.like = -1
     rating.save
-    head :ok
+    render :json => Route.find(params[:id]).info
   end
 
   def favorite
     rating = Rating.find_or_create_by_route_and_user(params[:id], session[:user_id])
     rating.favorite = 1
     rating.save
-    head :ok
+    render :json => Route.find(params[:id]).info
   end
 end
