@@ -1,7 +1,7 @@
 Coms309::Application.routes.draw do
 
   match "/sessions" => "sessions#create", :via => :post
-  match "/sessions" => "sessions#delete", :via => :delete
+  match "/sessions" => "sessions#destroy", :via => :delete
 
   get "routes/search"
 
