@@ -5,7 +5,8 @@
 		<script src="javascripts/mobile/jquery.min.js"></script>
 		<script type="text/javascript">
 			function testGET(){
-				$.get("/routes/search.json", { start: "", ending: "cc" },
+				var $id = 1;
+				$.get("/routes/" + id + "/coordinates.json",
 			   function(data){
 				 alert("Data Loaded: " + JSON.stringify(data));
 			   });
