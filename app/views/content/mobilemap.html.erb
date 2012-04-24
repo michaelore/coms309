@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" id="endroute" data-theme="" data-icon="delete" onClick="grabRouteCall()">
+                            <a href="#page1" id="endroute" data-theme="" data-icon="delete">
                                 End Route
                             </a>
                         </li>
@@ -164,8 +164,8 @@
 				window.frames[0].toLocation();
 			}
 			
-			function grabRouteCall(){
-				window.frames[0].grabRoute();
+			function grabRouteCall(cJSON){
+				window.frames[0].grabRoute(cJSON);
 			}
 </script>
 <script type="text/javascript">
@@ -181,7 +181,7 @@
 			else
 			{
 				//alert("Route ID Passed: " + $routeID);
-				pullRouteCoordinates($routeID);
+				var coordinatesJSON = pullRouteCoordinates($routeID);
 			}
 		});	
 </script>
