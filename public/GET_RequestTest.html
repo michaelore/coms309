@@ -6,7 +6,7 @@
 		<script type="text/javascript">
 			function testGET(){
 				var $id = 1;
-				$.get("/routes/" + id + "/coordinates.json",
+				$.get("/routes/" + $id + "/coordinates.json",
 			   function(data){
 				 alert("Data Loaded: " + JSON.stringify(data));
 			   });
