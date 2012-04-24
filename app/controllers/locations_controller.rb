@@ -3,13 +3,13 @@ class LocationsController < ApplicationController
     @location = Location.new(:name => params[:location][:name])
     respond_to do |format|
       if @location.save
-        coord = Coordinate.new({:latitude => params[:post][:latitude],
-                                :longitude => params[:post][:longitude],
-                                :accuracy => params[:post][:accuracy],
+        coord = Coordinate.new({:latitude => params[:location][:latitude],
+                                :longitude => params[:location][:longitude],
+                                :accuracy => params[:location][:accuracy],
                                 :location_id => @location.id})
         coord.save
         format.html { redirect_to(@location, :notice => 'Location was successfully created.') }
-        format.json { head :created, :location => @location }
+        format.json { render :json => @location }
       else
         format.html { redirect_to(@location, :action => 'new', :notice => 'Location could not be created.') }
         format.json { render :json => @location.errors, :status => :unprocessable_entity }
