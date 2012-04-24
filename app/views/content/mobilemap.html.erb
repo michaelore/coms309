@@ -183,8 +183,8 @@
 			else
 			{
 				alert("Route ID Passed: " + $routeID);
-				var coordinatesJSON = pullRouteCoordinates($routeID);
-				grabRouteCall(coordinatesJSON.get());
+				var $coordinatesJSON = pullRouteCoordinates($routeID);
+				grabRouteCall($coordinatesJSON);
 			}
 		});	
 </script>
