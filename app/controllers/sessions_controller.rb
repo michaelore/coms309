@@ -10,13 +10,24 @@ class SessionsController < ApplicationController
 	end
 	
 	def create
-		user = User.find_by_email(params[:email])
-		if user && user.authenticate(params[:password])
-			session[:user_id] = user.id
-			redirect_to "/home"
-		else
-			flash.now.alert = "Invalid email or password"
-			render "new"
+		if params[:commit] == "login"
+			user = User.find_by_email(params[:user][:email])
+			if user && user.authenticate(params[:user][:password])
+				session[:user_id] = user.id
+				redirect_to "/home"
+			else
+				flash.alert = "Invalid email or password"
+				redirect_to "/login"
+			end
+		elsif params[:commit] == "register"
+			user = User.new(params[:user])
+			if user.save
+				session[:user_id] = user.id
+				redirect_to "/home"
+			else
+				flash.alert = "Your account could not be created"
+				redirect_to "/login"
+			end
 		end
 	end
 
