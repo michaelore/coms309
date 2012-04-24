@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120415125203) do
+ActiveRecord::Schema.define(:version => 20120424010547) do
 
   create_table "coordinates", :force => true do |t|
     t.float    "latitude"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20120415125203) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.boolean  "is_admin"
   end
 
 end
