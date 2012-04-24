@@ -8,6 +8,9 @@ Coms309::Application.routes.draw do
   resources :users
   resources :routes
   match "/routes/:id/coordinates/" => "routes#coordinates"
+  match "/routes/:id/like/" => "routes#like", :via => :post
+  match "/routes/:id/dislike/" => "routes#dislike", :via => :post
+  match "/routes/:id/favorite/" => "routes#favorite", :via => :post
   resources :locations
   resources :coordinates
 
