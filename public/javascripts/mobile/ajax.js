@@ -93,7 +93,7 @@ function pullLocation(id){
 function pullRouteCoordinates(id){
 	$.get("/routes/" + id + "/coordinates.json",
    function(data){
-     //alert("route id: " + id + "data: " + data);
+     alert("route id: " + id + "data: " + data);
 	 return data;
    }, "json");
 }

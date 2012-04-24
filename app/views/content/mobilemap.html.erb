@@ -165,6 +165,7 @@
 			}
 			
 			function grabRouteCall(cJSON){
+				alert(cJSON);
 				window.frames[0].grabRoute(cJSON);
 			}
 </script>
@@ -180,7 +181,7 @@
 			}
 			else
 			{
-				//alert("Route ID Passed: " + $routeID);
+				alert("Route ID Passed: " + $routeID);
 				var coordinatesJSON = pullRouteCoordinates($routeID);
 			}
 		});	
