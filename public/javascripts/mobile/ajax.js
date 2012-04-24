@@ -92,12 +92,11 @@ function pullLocation(id){
 */
 function pullRouteCoordinates(id){
 	var $id = id;
-	$.get("/routes/" + $id + "/coordinates.json", return data
-   //function(data){
-	// alert("Data Loaded: " + JSON.stringify(data));
-	// return data;
-   //}
-   );
+	return $.get("/routes/" + $id + "/coordinates.json",
+   function(data){
+	 alert("Data Loaded: " + JSON.stringify(data));
+	 return data;
+   });
 }
 
 function searchByKeyword(s, e){
