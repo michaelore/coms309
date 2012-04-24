@@ -91,15 +91,11 @@ function pullLocation(id){
 
 */
 function pullRouteCoordinates(id){
-	$.getJSON("/routes/" + id + "/coordinates.json", function(json) {
-	   alert("JSON Data: " + json);
-	   return json;
-	 });
-	/*$.get("/routes/" + id + "/coordinates.json",
+	var $id = 1;
+	$.get("/routes/" + $id + "/coordinates.json",
    function(data){
-     alert("route id: " + id + "data: " + data);
-	 return data;
-   }, "json");*/
+	 alert("Data Loaded: " + JSON.stringify(data));
+   });
 }
 
 function searchByKeyword(s, e){
