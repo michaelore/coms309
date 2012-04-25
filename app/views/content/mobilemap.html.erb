@@ -51,19 +51,23 @@
 			};
 			function storeRouteName()
 			{
-				routeStartName = $("#nameRouteStart").val();
-				routeEndName = $("#nameRouteEnd").val();
+				//window.frames[0].
+				//routeStartName = $("#nameRouteStart").val();
+				//routeEndName = $("#nameRouteEnd").val();
+				window.frames[0].submitLocations($("#nameRouteStart").val(),$("#nameRouteEnd").val());
 			}
 			function storeLocationName()
 			{
-				locationName = $("#nameLocation").val();
+				//locationName = $("#nameLocation").val();
+				window.frames[0].submitLocation($("#nameLocation").val());
 			}
+			/*deprecated
 			function getRouteStartName()
 			{ return routeStartName; }
 			function getRouteEndName()
 			{ return routeEndName; }
 			function getLocationName()
-			{ return locationName; }
+			{ return locationName; }*/
 		</script>
         <div data-role="page" data-theme="b" id="page10">
             <div data-theme="b" data-role="header" data-position="inline">
