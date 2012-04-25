@@ -79,7 +79,7 @@ class RoutesController < ApplicationController
 
   def history
     @userid = session[:user_id]
-    @routes = User.find(session[:user_id]).affiliatees
+    @routes = User.find(session[:user_id]).ratees
     respond_to do |format|
       format.html { render :file => "routes/mobilehistory", :layout => "mobile" }
       format.json { render :json => @routes.map {|r| r.info(session[:user_id])} }
