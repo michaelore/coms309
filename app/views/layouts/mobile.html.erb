@@ -7,6 +7,17 @@
   <%= javascript_include_tag "mobile/jquery.min.js" %>
   <%= javascript_include_tag "mobile/jquery.mobile-1.0.1.min.js" %>
   <%= javascript_include_tag "mobile/ajax.js" %>
+  <style type="text/css">
+	  @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+		   only screen and (min--moz-device-pixel-ratio: 1.5),
+		   only screen and (min-resolution: 240dpi) {
+		.ui-icon,
+	.ui-icon-searchfield:after {
+		 background-image: url(images/icons-36-black.png);
+
+	}
+	}
+  </style>
 </head>
 <body>
 
