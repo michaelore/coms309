@@ -5,12 +5,12 @@ Coms309::Application.routes.draw do
 
   resources :users
   resources :routes
+  get "routes/search"
+  get "routes/history"
   match "/routes/:id/coordinates/" => "routes#coordinates"
   match "/routes/:id/like/" => "routes#like", :via => :post
   match "/routes/:id/dislike/" => "routes#dislike", :via => :post
   match "/routes/:id/favorite/" => "routes#favorite", :via => :post
-  get "routes/search"
-  get "routes/history"
   resources :locations
   resources :coordinates
 
