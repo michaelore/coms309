@@ -31,6 +31,7 @@ class RouteRanking
 	##
 	#sort route by average ranking and return the sourted routes
 	#use insertion sort algorithm for sorting the average ranking
+	#prepare for the stars
 
 	def sort
 
