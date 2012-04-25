@@ -39,6 +39,20 @@
 			  alert("Data Loaded: " + JSON.stringify(data));
 			});
 		}
+		function postLocation(lat, lng, name){
+			$.ajax({
+				type: "POST",
+				url: '/locations',
+				data: { _method:'POST', page : { "location[latitude]": lat, "location[longitude]": lng, "location[name]": name} },
+				dataType: 'json',
+				success: function(msg) {
+					alert( "Data Saved: " + msg );
+				},
+				error: function(msg) {
+					alert( "Error: " + msg );
+				}
+			});
+		}
 		</script>
     </head>
     <body>
@@ -46,6 +60,7 @@
 		<input type="button" class="start" value="Test POST--Like" onclick="testPOST('like')"/>
 		<input type="button" class="start" value="Test POST--Dislike" onclick="testPOST('dislike')"/>
 		<input type="button" class="start" value="Test POST--Favorite" onclick="testPOST('favorite')"/>
+		<input type="button" class="start" value="Test POST--Favorite" onclick="postLocation(1,6,'joetest')"/>
         <script>
             //App custom javascript
         </script>
