@@ -81,7 +81,7 @@ class RoutesController < ApplicationController
     rating = Rating.find_or_create_by_route_id_and_user_id(params[:id], session[:user_id])
     rating.like = 1
     rating.save
-    render :json => Route.find(params[:id]).info
+    render :json => Route.find(params[:id]).info(session[:user_id])
   end
 
   def dislike
