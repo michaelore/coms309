@@ -65,7 +65,6 @@ function postRoute(latlng, idstart, idend, time){
 			alert( "Error: " + msg );
         }
 	});
-	
 }
 
 function ldfav(id, todo){
@@ -74,7 +73,36 @@ function ldfav(id, todo){
 	//POST    /routes/3/favorite
 	var $id = id;
 	$.post("/routes/" + $id + "/" + todo, function(data) {
-	  alert("Data Loaded: " + JSON.stringify(data));
+	  //alert("Data Loaded: " + JSON.stringify(data));
+		if (data.liked == 1)
+		{
+			//switch like button to checkmark and dislike button to arrow-d
+			$("#like .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-arrow-u");
+			$("#dislike .ui-icon").addClass("ui-icon-arrow-d").removeClass("ui-icon-check");
+		}
+		else if (data.liked == 0)
+		{
+			//set like button to arrow-u and dislike button to arrow-d
+			$("#like .ui-icon").addClass("ui-icon-arrow-u").removeClass("ui-icon-check");
+			$("#dislike .ui-icon").addClass("ui-icon-arrow-d").removeClass("ui-icon-check");
+		}
+		else
+		{
+			//dislike is currently selected b/c data.liked == -1
+			//set dislike button to check and like to arrow-u
+			$("#like .ui-icon").addClass("ui-icon-arrow-u").removeClass("ui-icon-check");
+			$("#dislike .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-arrow-u");
+		}
+		if (data.favorite == 1)
+		{
+			//set favorite icon to check b/c it's currently favorited
+			$("#favorite .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-star");
+		}
+		else
+		{
+			//otherwise it's not favorited, so we need to set the icon to the star
+			$("#favorite .ui-icon").addClass("ui-icon-star").removeClass("ui-icon-check");
+		}
 	});
 }
 
@@ -91,8 +119,39 @@ function pullRouteData(id){
 	var $id = id;
 	$.get("/routes/" + $id + ".json",
    function(data){
-	//magic shit
-		alert(data.start);
+		//setup the like/dislike/favorite buttons on the page accordingly
+		if (data.liked == 1)
+		{
+			//switch like button to checkmark and dislike button to arrow-d
+			$("#like .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-arrow-u");
+			$("#dislike .ui-icon").addClass("ui-icon-arrow-d").removeClass("ui-icon-check");
+		}
+		else if (data.liked == 0)
+		{
+			//set like button to arrow-u and dislike button to arrow-d
+			$("#like .ui-icon").addClass("ui-icon-arrow-u").removeClass("ui-icon-check");
+			$("#dislike .ui-icon").addClass("ui-icon-arrow-d").removeClass("ui-icon-check");
+		}
+		else
+		{
+			//dislike is currently selected b/c data.liked == -1
+			//set dislike button to check and like to arrow-u
+			$("#like .ui-icon").addClass("ui-icon-arrow-u").removeClass("ui-icon-check");
+			$("#dislike .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-arrow-u");
+		}
+		if (data.favorite == 1)
+		{
+			//set favorite icon to check b/c it's currently favorited
+			$("#favorite .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-star");
+		}
+		else
+		{
+			//otherwise it's not favorited, so we need to set the icon to the star
+			$("#favorite .ui-icon").addClass("ui-icon-star").removeClass("ui-icon-check");
+		}
+		
+		//set the distance portion of the page
+		document.getElementById('distance').innerHTML = "Distance: " + data.distance + " meters";
    });
 }
 

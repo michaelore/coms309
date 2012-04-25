@@ -118,14 +118,14 @@
                 <div id="map_container" style="width:100%; height:100%;">
 					<iframe id="map_frame" width="90%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://digitravel.herokuapp.com/googlemap.html"></iframe>
                 </div>			
-                <a href="#page1" data-role="button" data-theme="b" data-icon="arrow-u" data-inline="true" onClick="getRouteID()">Like</a>
-                <a href="#page1" data-role="button" data-theme="c" data-icon="arrow-d" data-inline="true">Dislike</a>
-				<a href="#page1" data-role="button" data-theme="b" data-icon="star" data-inline="true">Favorite</a>
+                <a id="like" href="#page1" data-role="button" data-theme="b" data-icon="arrow-u" data-inline="true" onClick="ldfav(getRouteID(),'like')">Like</a>
+                <a id="dislike" href="#page1" data-role="button" data-theme="c" data-icon="arrow-d" data-inline="true" onClick="ldfav(getRouteID(),'dislike')">Dislike</a>
+				<a id="favorite" href="#page1" data-role="button" data-theme="b" data-icon="star" data-inline="true" onClick="ldfav(getRouteID(),'favorite')">Favorite</a>
 				<h4>
                     Route Statistics:
                 </h4>
                 <div class="ui-grid-a">
-                    <div class="ui-block-a">
+                    <div id="distance" class="ui-block-a">
 						Distance
                     </div>
                     <div class="ui-block-b">
