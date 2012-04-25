@@ -56,7 +56,7 @@ function postRoute(latlng, idstart, idend, time){
 	$.ajax({
         type: "POST",
         url: '/routes',
-        data: { _method:'POST', "route[lat]" : lat, "route[lon]" : lng, "route[start_id]": idstart, "route[ending_id]": idend, "route[time]": time} },
+        data: { _method:'POST', "route[lat]" : lat, "route[lon]" : lng, "route[start_id]": idstart, "route[ending_id]": idend, "route[time]": time },
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
