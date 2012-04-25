@@ -18,7 +18,7 @@ class Route < ActiveRecord::Base
 		(0..(coordinates.length-2)).each do |i|
 			sum += Coordinate.distance(coordinates[i].latitude, coordinates[i].longitude, coordinates[i+1].latitude, coordinates[i+1].longitude)
 		end
-		return sum
+		return sum.floor
 	end
 
 	def likes
