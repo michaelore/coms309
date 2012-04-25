@@ -30,7 +30,7 @@ function postLocation(lat, lng, name){
 	$.ajax({
         type: "POST",
         url: '/locations',
-        data: { _method:'POST', page : { "location[latitude]": lat, "location[longitude]": lng, "location[name]": name} },
+        data: { _method:'POST', "location[latitude]": lat, "location[longitude]": lng, "location[name]": name},
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
