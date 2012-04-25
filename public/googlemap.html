@@ -238,9 +238,9 @@ function submitLocations(name1,name2){
 	alert ("Data Saved");
 	//alert("start"+startid);
 	//alert("end"+endid);
-	var lat;
-	var lng;
-	for(var i = 0; i < locations.length;i++){
+	var lat =[locations[0].lat()];
+	var lng =[locations[0].lng()];
+	for(var i = 1; i < locations.length;i++){
 		lat.push(locations[i].lat());
 		lng.push(locations[i].lng());
 	}
