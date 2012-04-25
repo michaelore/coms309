@@ -52,16 +52,9 @@ function postLocation(lat, lng, name, se){
 
 
 
-function postRoute(latlng, idstart, idend, time){
+function postRoute(lat, lng, idstart, idend, time){
 	
-	var lat;
-	var lng;
-	
-	for(var i = 0; i < latlng.length;i++){
-		lat.push(latlng[i].lat());
-		lng.push(latlng[i].lng());
-	}
-	
+
 	$.ajax({
         type: "POST",
         url: '/routes',

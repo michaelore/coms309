@@ -238,9 +238,15 @@ function submitLocations(name1,name2){
 	alert ("Data Saved");
 	//alert("start"+startid);
 	//alert("end"+endid);
+	var lat;
+	var lng;
+	for(var i = 0; i < locations.length;i++){
+		lat.push(locations[i].lat());
+		lng.push(locations[i].lng());
+	}
 	
 	var time = window.parent.stopTimer();
-	window.parent.postRoute(locations, startid, endid, time)
+	window.parent.postRoute(lat,lng, startid, endid, time)
 	
 	
 }
