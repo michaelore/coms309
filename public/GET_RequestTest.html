@@ -32,11 +32,10 @@
 		};
 		function testPOST(todo){
 			//POST    /routes/3/like
-			//
 			//POST    /routes/3/dislike
 			//POST    /routes/3/favorite
 			var $id = 1;
-			post("/routes/" + $id + "/" + todo, function(data) {
+			$.post("/routes/" + $id + "/" + todo, function(data) {
 			  alert("Data Loaded: " + JSON.stringify(data));
 			});
 		}
