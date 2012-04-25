@@ -69,9 +69,6 @@ function setLocation(){
 	  
 	 
 	 window.parent.nameLocation();
-	 alert("You named it "+ window.parent.getLocationName());
-	 submitLocation(curLat, curLng, window.parent.getLocationName());
-	 
 }
 
 
@@ -221,15 +218,19 @@ This function will send the information of the currently made route to the datab
 function submitRoute(){
 	window.parent.nameRoute();
 	
-	submitLocation(locations[0].lat(),locations[0].lng(), window.parent.getRouteEndName());
-	submitLocation(locations[locations.length].lat(),locations[locations.length].lng(), window.parent.getRouteStartName());
 	
 	
 }
 
-function submitLocation(lat,lng,name){
+function submitLocation(name){
 	alert (name);
 }
+
+function submitLocations(name1,name2){
+	alert(name1);
+	alert(name2);
+}
+
 /**
 This function will make a timer to see how long you have been makeing a route our how long you have been travelling on a route.
 */
