@@ -7,4 +7,6 @@ a.addRoute(4, 4, 5)
 a.addRoute(5, 7, 8)
 a.addRoute(6, 10, 1)
 a.addRoute(7, 100, 1)
-puts a.sort
+a.addRoute(8, 0, 100)
+a.sort
+puts a.star
