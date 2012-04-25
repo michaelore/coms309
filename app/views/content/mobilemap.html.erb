@@ -105,7 +105,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#page1" id="endroute" data-theme="" data-icon="delete">
+                            <a href="#page1" id="endroute" data-theme="" data-icon="delete" onClick="endRouteCall()">
                                 End Route
                             </a>
                         </li>
@@ -207,6 +207,10 @@
 	
 			function zoomLoc(){
 				window.frames[0].toLocation();
+			}
+			
+			function endRouteCall(){
+				window.frames[0].endRoute();
 			}
 			
 			function grabRouteCall(cJSON){
