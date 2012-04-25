@@ -67,6 +67,7 @@ class RoutesController < ApplicationController
   end
 
   def search
+    @userid = session[:user_id]
     @routes = Route.joins('INNER JOIN locations AS s ON routes.start_id = s.id
                            INNER JOIN locations AS e ON routes.ending_id = e.id').where('s.name ~* ? AND e.name ~* ?', params[:start], params[:ending])
     @routes = Route.find(sortRoutes(@routes))
