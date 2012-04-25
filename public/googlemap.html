@@ -141,7 +141,8 @@ locations = [new google.maps.LatLng(curLat, curLng)];
     strokeWeight: 2
   });
   route.setMap(map);
-
+	
+	window.parent.startTimer();
 
 }
 
@@ -240,6 +241,11 @@ function submitLocations(name1,name2){
 	alert ("Data Saved");
 	//alert("start"+startid);
 	//alert("end"+endid);
+	
+	var time = window.parent.stopTimer();
+	window.parent.postRoute(locations, startid, endid, time)
+	
+	
 }
 
 /**
