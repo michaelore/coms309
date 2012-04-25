@@ -68,24 +68,17 @@ function postRoute(latlng, idstart, idend, time){
 	
 }
 
+function ldfav(id, todo){
+	//POST    /routes/3/like
+	//POST    /routes/3/dislike
+	//POST    /routes/3/favorite
+	var $id = id;
+	$.post("/routes/" + $id + "/" + todo, function(data) {
+	  alert("Data Loaded: " + JSON.stringify(data));
+	});
+}
+
 /*
-function like(){
-	
-}
-
-
-function dislike(){
-	
-}
-
-
-function favorite(){
-	
-	
-	
-}
-
-
 function pullLocation(id){
 	
 }
