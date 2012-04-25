@@ -79,32 +79,32 @@ function ldfav(id, todo){
 		if (data.liked == 1)
 		{
 			//switch like button to checkmark and dislike button to arrow-d
-			$("#like").data('icon', 'check'); 
+			$("#like").attr('data-icon', 'check'); 
 			$("#like .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-arrow-u");
-			$("#dislike").data('icon', 'arrow-d'); 
+			$("#dislike").attr('data-icon', 'arrow-d'); 
 			$("#dislike .ui-icon").addClass("ui-icon-arrow-d").removeClass("ui-icon-check");
 		}
 		else if (data.liked == 0)
 		{
 			//set like button to arrow-u and dislike button to arrow-d
-			$("#like").data('icon', 'arrow-u'); 
+			$("#like").attr('data-icon', 'arrow-u'); 
 			$("#like .ui-icon").addClass("ui-icon-arrow-u").removeClass("ui-icon-check");
-			$("#dislike").data('icon', 'arrow-d'); 
+			$("#dislike").attr('data-icon', 'arrow-d'); 
 			$("#dislike .ui-icon").addClass("ui-icon-arrow-d").removeClass("ui-icon-check");
 		}
 		else
 		{
 			//dislike is currently selected b/c data.liked == -1
 			//set dislike button to check and like to arrow-u
-			$("#like").data('icon', 'arrow-u'); 
+			$("#like").attr('data-icon', 'arrow-u'); 
 			$("#like .ui-icon").addClass("ui-icon-arrow-u").removeClass("ui-icon-check");
-			$("#dislike").data('icon', 'check'); 
+			$("#dislike").attr('data-icon', 'check'); 
 			$("#dislike .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-arrow-u");
 		}
 		if (data.favorite == 1)
 		{
 			//set favorite icon to check b/c it's currently favorited
-			$("#favorite").data('icon', 'check'); 
+			$("#favorite").attr('data-icon', 'check'); 
 			$("#favorite .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-star");
 		}
 		else
@@ -132,32 +132,32 @@ function pullRouteData(id){
 		if (data.liked == 1)
 		{
 			//switch like button to checkmark and dislike button to arrow-d
-			$("#like").data('icon', 'check'); 
+			$("#like").attr('data-icon', 'check'); 
 			$("#like .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-arrow-u");
-			$("#dislike").data('icon', 'arrow-d'); 
+			$("#dislike").attr('data-icon', 'arrow-d'); 
 			$("#dislike .ui-icon").addClass("ui-icon-arrow-d").removeClass("ui-icon-check");
 		}
 		else if (data.liked == 0)
 		{
 			//set like button to arrow-u and dislike button to arrow-d
-			$("#like").data('icon', 'arrow-u'); 
+			$("#like").attr('data-icon', 'arrow-u'); 
 			$("#like .ui-icon").addClass("ui-icon-arrow-u").removeClass("ui-icon-check");
-			$("#dislike").data('icon', 'arrow-d'); 
+			$("#dislike").attr('data-icon', 'arrow-d'); 
 			$("#dislike .ui-icon").addClass("ui-icon-arrow-d").removeClass("ui-icon-check");
 		}
 		else
 		{
 			//dislike is currently selected b/c data.liked == -1
 			//set dislike button to check and like to arrow-u
-			$("#like").data('icon', 'arrow-u'); 
+			$("#like").attr('data-icon', 'arrow-u'); 
 			$("#like .ui-icon").addClass("ui-icon-arrow-u").removeClass("ui-icon-check");
-			$("#dislike").data('icon', 'check'); 
+			$("#dislike").attr('data-icon', 'check'); 
 			$("#dislike .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-arrow-u");
 		}
 		if (data.favorite == 1)
 		{
 			//set favorite icon to check b/c it's currently favorited
-			$("#favorite").data('icon', 'check'); 
+			$("#favorite").attr('data-icon', 'check'); 
 			$("#favorite .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-star");
 		}
 		else
