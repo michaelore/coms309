@@ -26,7 +26,7 @@ function fillMyContacts(){
 	);
 }
 
-function postLocation(lat, lng, name){
+function postLocation(lat, lng, name, se){
 	$.ajax({
         type: "POST",
         url: '/locations',
@@ -34,7 +34,15 @@ function postLocation(lat, lng, name){
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
-			window.parent.$routeID = msg.location.id;
+			//window.parent.$routeID = msg.location.id;
+			if (se == "s")
+			{
+				window.frames[0].startid = msg.location.id;
+			}
+			else
+			{
+				window.frames[0].endid = msg.location.id;
+			}
         },
 		error: function(msg) {
 			alert( "Error: " + msg );
