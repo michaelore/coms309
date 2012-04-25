@@ -5,7 +5,12 @@ class ContentController < ApplicationController
     if isMobile
       render :file => 'content/mobilehome', :layout => 'mobile'
     else
-      render :file => 'content/desktopUser', :layout => 'desktop'
+      user = User.find(session[:user_id])
+      if user.is_admin
+        render :file => 'content/desktopAdmin', :layout => 'desktop'
+      else
+        render :file => 'content/desktopUser', :layout => 'desktop'
+      end
     end
   end
 
@@ -19,7 +24,7 @@ class ContentController < ApplicationController
 
   def history
     if isMobile
-      render :file => 'content/mobileshistory', :layout => 'mobile'
+      render :file => 'content/mobilehistory', :layout => 'mobile'
     else
       render :file => 'content/history', :layout => 'desktop'
     end
