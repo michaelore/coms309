@@ -1,7 +1,13 @@
 class RoutesController < ApplicationController
   include ApplicationHelper
   def create
-    @route = Route.new(params[:route])
+    vertices = []
+    for i in 1..(params[:route][:lat].length-1)
+      coord = Coordinate.new(:latitude => params[:route][:lat][i], :longitude => params[:route][:lon][i])
+      coord.save
+      vertices.push(coord.id)
+    end
+    @route = Route.new(:start_id => params[:route][:start_id], :ending_id => params[:route][:ending_id], :time => params[:route][:time], :vertices => vertices)
     respond_to do |format|
       if @route.save
         format.html { redirect_to(@route, :notice => 'Route was successfully created.') }
