@@ -57,7 +57,7 @@ function postRoute(latlng, idstart, idend, time){
 	var lat;
 	var lng;
 	
-	for(var i = 0; i < latlng.length();i++){
+	for(var i = 0; i < latlng.length;i++){
 		lat.push(latlng[i].lat());
 		lng.push(latlng[i].lng());
 	}
