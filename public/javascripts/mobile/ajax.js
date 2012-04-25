@@ -58,8 +58,8 @@ function postRoute(latlng, idstart, idend, time){
 	var lng;
 	
 	for(var i = 0; i < latlng.length;i++){
-		lat.push(latlng[i].lat());
-		lng.push(latlng[i].lng());
+		lat.push(latlng[i].lat);
+		lng.push(latlng[i].lng);
 	}
 	
 	$.ajax({
