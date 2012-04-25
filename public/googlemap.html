@@ -217,18 +217,20 @@ This function will send the information of the currently made route to the datab
 */
 function submitRoute(){
 	window.parent.nameRoute();
-	
-	
-	
 }
 
 function submitLocation(name){
 	alert (name);
+	window.parent.postLocation(curLat, curLng, name);
 }
 
 function submitLocations(name1,name2){
 	alert(name1);
+	window.parent.postLocation(locations[0].lat(), locations[0].lng() , name1);
 	alert(name2);
+	window.parent.postLocation(locations[locations.length-1].lat(), locations[locations.length-1].lng() , name2);
+	
+	
 }
 
 /**
