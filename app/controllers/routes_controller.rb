@@ -72,7 +72,15 @@ class RoutesController < ApplicationController
     @routes = Route.find(sortRoutes(@routes))
     respond_to do |format|
       format.html
-      format.json { render :json => @routes.map {|r| r.deep} }
+      format.json { render :json => @routes.map {|r| r.info(session[:user_id])} }
+    end
+  end
+
+  def history
+    @routes = User.find(session[:user_id]).affiliatees
+    respond_to do |format|
+      format.html { render :file => "routes/search" }
+      format.json { render :json => @routes.map {|r| r.info(session[:user_id])} }
     end
   end
 
