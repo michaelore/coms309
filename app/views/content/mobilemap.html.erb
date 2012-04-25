@@ -15,6 +15,33 @@
 				'<a rel="close" data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="search" data-iconpos="left" onClick="doSearch()">Search</a>'
 			  })
 			});
+			function nameLocation()
+			{
+				$('<div>').simpledialog2({
+				mode: 'blank',
+				headerText: 'Name Location',
+				headerClose: true,
+				blankContent : 
+				'<div id="content" data-role="content"><label>Name Location:</label>'+
+				'<div data-role="fieldcontain"><fieldset data-role="controlgroup"><label for="textinput9">Name:</label>'+
+				'<input id="nameLocation" placeholder="" value="" type="text" /></fieldset></div>'+
+				'<a rel="close" data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="search" data-iconpos="left">Search</a>'
+			  });
+			}
+			function nameRoute()
+			{
+				$('<div>').simpledialog2({
+				mode: 'blank',
+				headerText: 'Name Route',
+				headerClose: true,
+				blankContent : 
+				'<div id="content" data-role="content"><label>Name Route:</label><div data-role="fieldcontain"><fieldset data-role="controlgroup">' +
+				'<label for="textinput7">Start</label><input id="nameRouteStart" placeholder="" value="" type="text"/></fieldset></div>'+
+				'<div data-role="fieldcontain"><fieldset data-role="controlgroup"><label for="textinput9">End</label>'+
+				'<input id="nameRouteEnd" placeholder="" value="" type="text" /></fieldset></div>'+
+				'<a rel="close" data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="search" data-iconpos="left">Okay</a>'
+			  })
+			}
 			function doSearch()
 			{
 				location.href = "/search/?start=" + $("#start").val() + "&end=" + $("#end").val();
