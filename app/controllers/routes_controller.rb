@@ -77,6 +77,7 @@ class RoutesController < ApplicationController
   end
 
   def history
+    @userid = session[:user_id]
     @routes = User.find(session[:user_id]).affiliatees
     respond_to do |format|
       format.html { render :file => "routes/search" }
