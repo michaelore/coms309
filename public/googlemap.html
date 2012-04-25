@@ -225,17 +225,14 @@ function submitRoute(){
 }
 
 function submitLocation(name){
-	alert (name);
 	window.parent.postLocation(curLat, curLng, name,"s");
 	alert("Data Saved"); 
 	//alert("start"+startid);
 }
 
 function submitLocations(name1,name2){
-	alert(name1);
 	window.parent.postLocation(locations[0].lat(), locations[0].lng() , name1, "s");
 	//var startid = window.parent.$routeID;
-	alert(name2);
 	window.parent.postLocation(locations[locations.length-1].lat(), locations[locations.length-1].lng() , name2, "e");
 	//var endid = window.parent.$routeID;
 	alert ("Data Saved");
