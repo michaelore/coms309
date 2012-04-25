@@ -78,23 +78,47 @@ class RoutesController < ApplicationController
   end
 
   def like
-    rating = Rating.find_or_create_by_route_id_and_user_id(params[:id], session[:user_id])
-    rating.like = 1
-    rating.save
-    render :json => Route.find(params[:id]).info(session[:user_id])
+    if (session[:user_id])
+      rating = Rating.find_or_create_by_route_id_and_user_id(params[:id], session[:user_id])
+      if rating.like == 1
+        rating.like = 0
+      else
+        rating.like = 1
+      end
+      rating.save
+      render :json => Route.find(params[:id]).info(session[:user_id])
+    else
+      render :json => "wtf log in dude"
+    end
   end
 
   def dislike
-    rating = Rating.find_or_create_by_route_id_and_user_id(params[:id], session[:user_id])
-    rating.like = -1
-    rating.save
-    render :json => Route.find(params[:id]).info
+    if (session[:user_id])
+      rating = Rating.find_or_create_by_route_id_and_user_id(params[:id], session[:user_id])
+      if rating.like == 1
+        rating.like = 0
+      else
+        rating.like = -1
+      end
+      rating.save
+      render :json => Route.find(params[:id]).info(session[:user_id])
+    else
+      render :json => "wtf log in dude"
+    end
   end
 
   def favorite
-    rating = Rating.find_or_create_by_route_id_and_user_id(params[:id], session[:user_id])
-    rating.favorite = 1
-    rating.save
-    render :json => Route.find(params[:id]).info
+    if (session[:user_id])
+      rating = Rating.find_or_create_by_route_id_and_user_id(params[:id], session[:user_id])
+      if rating.favorite == 1
+        rating.favorite = 0
+      else
+        rating.favorite = 1
+      end
+      rating.save
+      render :json => Route.find(params[:id]).info(session[:user_id])
+    else
+      render :json => "wtf log in dude"
+    end
   end
 end
