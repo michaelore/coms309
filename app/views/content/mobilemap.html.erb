@@ -2,6 +2,9 @@
 		<%= javascript_include_tag "mobile/jquery.mobile.simpledialog2.min.js" %>
 		<%= javascript_include_tag "mobile/date.format.js" %>
 		<script type="text/javascript">
+			var locationName = "";
+			var routeStartName = "";
+			var routeEndName = "";
 			$(document).delegate('#searchdialog', 'click', function() {
 			  $('<div>').simpledialog2({
 				mode: 'blank',
@@ -25,7 +28,7 @@
 				'<div id="content" data-role="content"><label>Name Location:</label>'+
 				'<div data-role="fieldcontain"><fieldset data-role="controlgroup"><label for="textinput9">Name:</label>'+
 				'<input id="nameLocation" placeholder="" value="" type="text" /></fieldset></div>'+
-				'<a rel="close" data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="check" data-iconpos="left">Okay</a>'
+				'<a rel="close" data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="check" data-iconpos="left" onClick="storeLocationName()">Okay</a>'
 			  });
 			}
 			function nameRoute()
@@ -39,13 +42,28 @@
 				'<label for="textinput7">Start</label><input id="nameRouteStart" placeholder="" value="" type="text"/></fieldset></div>'+
 				'<div data-role="fieldcontain"><fieldset data-role="controlgroup"><label for="textinput9">End</label>'+
 				'<input id="nameRouteEnd" placeholder="" value="" type="text" /></fieldset></div>'+
-				'<a rel="close" data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="check" data-iconpos="left">Okay</a>'
+				'<a rel="close" data-role="button" data-transition="fade" data-theme="b" href="#page6" data-icon="check" data-iconpos="left" onClick="storeRouteName()">Okay</a>'
 			  })
 			}
 			function doSearch()
 			{
 				location.href = "/search/?start=" + $("#start").val() + "&end=" + $("#end").val();
 			};
+			function storeRouteName()
+			{
+				routeStartName = $("#nameRouteStart").val();
+				routeEndName = $("#nameRouteEnd").val();
+			}
+			function storeLocationName()
+			{
+				locationName = $("#nameLocation").val();
+			}
+			function getRouteStartName()
+			{ return routeStartName; }
+			function getRouteEndName()
+			{ return routeEndName; }
+			function getLocationName()
+			{ return locationName; }
 		</script>
         <div data-role="page" data-theme="b" id="page10">
             <div data-theme="b" data-role="header" data-position="inline">

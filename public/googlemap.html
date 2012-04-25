@@ -68,9 +68,9 @@ function setLocation(){
 	});
 	  
 	 
-	 nameLocation();
+	 window.parent.nameLocation();
 	 alert("You named it "+ $("#nameLocation").val());
-	 submitLocation(curLat, curLng, $("#nameLocation").val());
+	 submitLocation(curLat, curLng, window.parent.getLocationName());
 	 
 }
 
@@ -219,10 +219,10 @@ function endRoute(){
 This function will send the information of the currently made route to the database.
 */
 function submitRoute(){
-	nameRoute();
+	window.parent.nameRoute();
 	
-	submitLocation(locations[0].lat(),locations[0].lng(), $("#nameRouteEnd").val() );
-	submitLocation(locations[locations.length].lat(),locations[locations.length].lng(), $("#nameRouteStart").val());
+	submitLocation(locations[0].lat(),locations[0].lng(), window.parent.getRouteEndName());
+	submitLocation(locations[locations.length].lat(),locations[locations.length].lng(), window.parent.getRouteStartName());
 	
 	
 }
