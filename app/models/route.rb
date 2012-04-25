@@ -45,11 +45,13 @@ class Route < ActiveRecord::Base
 
 	def info(user_id)
 		faved = 0
+		liked = 0
 		rate = Rating.find_by_user_id_and_route_id(user_id ? user_id : 0, id)
-		if (rate && rate.favorite == 1)
-			faved = 1
+		if rate
+			faved = rate.favorite
+			liked = rate.like
 		end
-		return {"id" => self.id, "start" => start.name, "ending" => ending.name, "likes" => likes, "dislikes" => dislikes, "favorite" => faved, "distance" => distance}
+		return {"id" => self.id, "start" => start.name, "ending" => ending.name, "likes" => likes, "dislikes" => dislikes, "favorite" => faved, "distance" => distance, "liked" => liked}
 	end
 
 	def deep
