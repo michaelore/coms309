@@ -33,7 +33,7 @@ function postLocation(lat, lng, name, se){
         data: { _method:'POST', "location[latitude]": lat, "location[longitude]": lng, "location[name]": name},
         dataType: 'json',
         success: function(msg) {
-			alert( "Data Saved: " + msg );
+			//alert( "Data Saved: " + msg );
 			//window.parent.$routeID = msg.location.id;
 			if (se == "s")
 			{
