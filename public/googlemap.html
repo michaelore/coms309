@@ -232,7 +232,7 @@ function submitLocations(name1,name2){
 	alert(name2);
 	window.parent.postLocation(locations[locations.length-1].lat(), locations[locations.length-1].lng() , name2);
 	var endid = window.parent.$routeID;
-	
+	alert(window.parent.$routeID);
 }
 
 /**
