@@ -35,7 +35,6 @@ function postLocation(lat, lng, name){
         success: function(msg) {
 			alert( "Data Saved: " + msg );
 			window.parent.$routeID = msg.location.id;
-			alert("Postlocation::  "+ msg.location.id)
         },
 		error: function(msg) {
 			alert( "Error: " + msg );
