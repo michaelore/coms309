@@ -80,7 +80,7 @@ class RoutesController < ApplicationController
     @userid = session[:user_id]
     @routes = User.find(session[:user_id]).affiliatees
     respond_to do |format|
-      format.html { render :file => "routes/search" }
+      format.html { render :file => "routes/mobilehistory" }
       format.json { render :json => @routes.map {|r| r.info(session[:user_id])} }
     end
   end
