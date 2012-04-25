@@ -4,9 +4,9 @@ Coms309::Application.routes.draw do
   match "/sessions" => "sessions#destroy", :via => :delete
 
   resources :users
-  resources :routes
   get "routes/search"
   get "routes/history"
+  resources :routes
   match "/routes/:id/coordinates/" => "routes#coordinates"
   match "/routes/:id/like/" => "routes#like", :via => :post
   match "/routes/:id/dislike/" => "routes#dislike", :via => :post
