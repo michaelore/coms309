@@ -67,6 +67,10 @@ function setLocation(){
 		position: curLocation
 	});
 	  
+	  //namer
+	 
+	 
+	 
 }
 
 
@@ -126,7 +130,7 @@ function setRoute(){
 		position: curLocation
 	});
 
-locations = [    new google.maps.LatLng(curLat, curLng)];
+locations = [new google.maps.LatLng(curLat, curLng)];
 	
 	var route = new google.maps.Polyline({
     path: locations,
@@ -152,7 +156,6 @@ function createPoint(){
 This function will create a point with in the route and make a marker at where the current position of the user is.
 */
 function setPoint(){
-
 	var curLocation = new google.maps.LatLng(curLat, curLng);
 	
 	var mapOptions = {
@@ -210,13 +213,20 @@ This function will be called by a button to make a point at the users current lo
 function endRoute(){
 	track(setPoint);
 	submitRoute();
-	
 }
 /**
 This function will send the information of the currently made route to the database.
 */
 function submitRoute(){
+	var name1;
+	var name2;
+	submitLocation(locations[0].lat(),locations[0].lng(), name1 );
+	submitLocation(locations[locations.length].lat(),locations[locations.length].lng(), name2 );
 	
+	
+}
+
+function submitLocation(lat,lng,name){
 	
 }
 /**
@@ -280,7 +290,6 @@ function parsjson(JsonObj){
 	for(var i=0; i < JsonObj.length;i++){
 		locations.push(new google.maps.LatLng(JsonObj[i].latitude, JsonObj[i].longitude));
 	}
-	
 }
 
     </script>
