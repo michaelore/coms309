@@ -16,7 +16,7 @@ Coms309::Application.routes.draw do
 
   match '/login' => 'sessions#new'
   match '/search' => 'content#search'
-  match '/history' => 'content#history'
+  match '/history' => 'routes#history'
   match '/map' => 'content#map'
   match '/home' => 'content#home'
 

@@ -6,25 +6,11 @@
                 </h3>
             </div>
             <div data-role="content">
-                <div data-role="fieldcontain">
-                    <label for="selectmenu1">
-                        Sort By
-                    </label>
-                    <select name="selectmenu1" id="selectmenu1" data-theme="b">
-                        <option value="recent">
-                            Most Recent
-                        </option>
-                    </select>
-                </div>
                 <ul data-role="listview" data-divider-theme="b" data-inset="true">
                     <li data-role="list-divider" role="heading">
                         History
                     </li>
-                    <li data-theme="c">
-                        <a href="#page1" data-transition="slide">
-                            placeholder
-                        </a>
-                    </li>
+                    <%= render :file => "routes/search" %>
                 </ul>
             </div>
             <div data-theme="b" data-role="footer">

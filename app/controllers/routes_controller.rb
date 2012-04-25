@@ -67,6 +67,7 @@ class RoutesController < ApplicationController
   end
 
   def search
+    @userid = session[:user_id]
     @routes = Route.joins('INNER JOIN locations AS s ON routes.start_id = s.id
                            INNER JOIN locations AS e ON routes.ending_id = e.id').where('s.name ~* ? AND e.name ~* ?', params[:start], params[:ending])
     @routes = Route.find(sortRoutes(@routes))
@@ -80,7 +81,7 @@ class RoutesController < ApplicationController
     @userid = session[:user_id]
     @routes = User.find(session[:user_id]).affiliatees
     respond_to do |format|
-      format.html { render :file => "routes/search" }
+      format.html { render :file => "routes/mobilehistory", :layout => "mobile" }
       format.json { render :json => @routes.map {|r| r.info(session[:user_id])} }
     end
   end
