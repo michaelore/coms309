@@ -34,6 +34,8 @@ function postLocation(lat, lng, name){
         dataType: 'json',
         success: function(msg) {
 			alert( "Data Saved: " + msg );
+			window.parent.$routeID = msg.id;
+			alert("Postlocation::  "+msg.id)
         },
 		error: function(msg) {
 			alert( "Error: " + msg );
