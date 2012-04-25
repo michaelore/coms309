@@ -69,7 +69,7 @@ function setLocation(){
 	  
 	 
 	 window.parent.nameLocation();
-	 alert("You named it "+ $("#nameLocation").val());
+	 alert("You named it "+ window.parent.getLocationName());
 	 submitLocation(curLat, curLng, window.parent.getLocationName());
 	 
 }
