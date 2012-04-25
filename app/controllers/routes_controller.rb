@@ -95,7 +95,7 @@ class RoutesController < ApplicationController
   def dislike
     if (session[:user_id])
       rating = Rating.find_or_create_by_route_id_and_user_id(params[:id], session[:user_id])
-      if rating.like == 1
+      if rating.like == -1
         rating.like = 0
       else
         rating.like = -1
